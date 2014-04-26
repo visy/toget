@@ -6,6 +6,8 @@
 #include "ofxIniFile.h"
 #include "ofxTweakbarINI.h"
 #include "ofxPostProcessing.h"
+#include "ofxFFTFile.h"
+#include "ofxFFTLive.h"
 
 class ofApp : public ofBaseApp{
 

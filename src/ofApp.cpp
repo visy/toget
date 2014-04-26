@@ -37,6 +37,12 @@ int num_files;
 int num_textures;
 float tweak;
 
+// media
+
+ofSoundPlayer soundPlayer;
+
+ofxFFTFile fftFile;
+ofxFFTLive fftLive;
 
 //--------------------------------------------------------------
 void ofApp::setup() {
@@ -109,6 +115,18 @@ void ofApp::setup() {
     post.init(ofGetWidth(), ofGetHeight());
     post.createPass<VerticalTiltShifPass>();
     post.createPass<ContrastPass>();
+    
+    // media
+    
+    fftFile.setMirrorData(false);
+    fftFile.setup();
+    fftLive.setMirrorData(false);
+    fftLive.setup();
+    
+    soundPlayer.loadSound("media/capsule455.mp3");
+    soundPlayer.setLoop(true);
+ //   soundPlayer.play();
+
 }
 
 float delta = 0.0;
@@ -124,6 +142,9 @@ void ofApp::update(){
     if (junaX < -ofGetWidth()*3.0) junaStartX+=ofGetWidth()*2.45;
     
     blur_float = speed_float*0.000001;
+    
+    fftFile.update();
+    fftLive.update();
 }
 
 //--------------------------------------------------------------
@@ -155,7 +176,7 @@ void ofApp::draw(){
             ofQuaternion qr;
             qr.set(train_rotation[0], train_rotation[1], train_rotation[2], train_rotation[3]);
             qr.getRotate(qangle, qaxis);
-            glRotatef(qangle, qaxis[0], qaxis[1], qaxis[2]);
+            glRotatef(qangle, qaxis[0], qaxis[1]+fftLive.getAveragePeak(), qaxis[2]);
     
             junaModel.setPosition(junaX, junaModel.pos.y, junaModel.pos.z);
             junaModel.draw();
@@ -202,6 +223,9 @@ void ofApp::draw(){
     // draw tweakbars
     
     ofxTweakbars::draw();
+    
+    ofDisableAlphaBlending();
+    ofSetColor(0);
 }
 
 //--------------------------------------------------------------

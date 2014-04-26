@@ -42,6 +42,10 @@
 		502610F7190BF1EE00493EDA /* ToonPass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 502610DC190BF14900493EDA /* ToonPass.cpp */; };
 		502610F8190BF1EE00493EDA /* VerticalTiltShifPass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 502610DE190BF14900493EDA /* VerticalTiltShifPass.cpp */; };
 		502610F9190BF1EE00493EDA /* ZoomBlurPass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 502610E0190BF14900493EDA /* ZoomBlurPass.cpp */; };
+		50261103190C4CA900493EDA /* fft.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 502610FB190C4CA900493EDA /* fft.cpp */; };
+		50261104190C4CA900493EDA /* ofxFFTBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 502610FD190C4CA900493EDA /* ofxFFTBase.cpp */; };
+		50261105190C4CA900493EDA /* ofxFFTFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 502610FF190C4CA900493EDA /* ofxFFTFile.cpp */; };
+		50261106190C4CA900493EDA /* ofxFFTLive.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 50261101190C4CA900493EDA /* ofxFFTLive.cpp */; };
 		55B5F6711043E54041610CA4 /* ofxTweakbarSimpleStorage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A0EF4606580188D35E31DA3 /* ofxTweakbarSimpleStorage.cpp */; };
 		55C24A8150B0F09D9DAADAEE /* ofxTweakbar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4477409ADD8AD36D41DD4DEF /* ofxTweakbar.cpp */; };
 		5E7E51DCCC092DF901AB83EC /* ofxTweakbarVec3f.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6F197B4C17A97EA7614239CD /* ofxTweakbarVec3f.cpp */; };
@@ -181,6 +185,14 @@
 		502610DF190BF14900493EDA /* VerticalTiltShifPass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VerticalTiltShifPass.h; sourceTree = "<group>"; };
 		502610E0190BF14900493EDA /* ZoomBlurPass.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ZoomBlurPass.cpp; sourceTree = "<group>"; };
 		502610E1190BF14900493EDA /* ZoomBlurPass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZoomBlurPass.h; sourceTree = "<group>"; };
+		502610FB190C4CA900493EDA /* fft.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = fft.cpp; path = fft/fft.cpp; sourceTree = "<group>"; };
+		502610FC190C4CA900493EDA /* fft.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = fft.h; path = fft/fft.h; sourceTree = "<group>"; };
+		502610FD190C4CA900493EDA /* ofxFFTBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ofxFFTBase.cpp; path = fft/ofxFFTBase.cpp; sourceTree = "<group>"; };
+		502610FE190C4CA900493EDA /* ofxFFTBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ofxFFTBase.h; path = fft/ofxFFTBase.h; sourceTree = "<group>"; };
+		502610FF190C4CA900493EDA /* ofxFFTFile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ofxFFTFile.cpp; path = fft/ofxFFTFile.cpp; sourceTree = "<group>"; };
+		50261100190C4CA900493EDA /* ofxFFTFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ofxFFTFile.h; path = fft/ofxFFTFile.h; sourceTree = "<group>"; };
+		50261101190C4CA900493EDA /* ofxFFTLive.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ofxFFTLive.cpp; path = fft/ofxFFTLive.cpp; sourceTree = "<group>"; };
+		50261102190C4CA900493EDA /* ofxFFTLive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ofxFFTLive.h; path = fft/ofxFFTLive.h; sourceTree = "<group>"; };
 		50A5F6A9190BABCA0081136C /* AntTweakBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AntTweakBar.h; sourceTree = "<group>"; };
 		50A5F6AA190BABCA0081136C /* ofxTweak.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ofxTweak.h; sourceTree = "<group>"; };
 		50A5F6AB190BABCA0081136C /* ofxTweakbar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ofxTweakbar.h; sourceTree = "<group>"; };
@@ -406,6 +418,21 @@
 			path = postprocess;
 			sourceTree = "<group>";
 		};
+		502610FA190C4C9B00493EDA /* fft */ = {
+			isa = PBXGroup;
+			children = (
+				502610FB190C4CA900493EDA /* fft.cpp */,
+				502610FC190C4CA900493EDA /* fft.h */,
+				502610FD190C4CA900493EDA /* ofxFFTBase.cpp */,
+				502610FE190C4CA900493EDA /* ofxFFTBase.h */,
+				502610FF190C4CA900493EDA /* ofxFFTFile.cpp */,
+				50261100190C4CA900493EDA /* ofxFFTFile.h */,
+				50261101190C4CA900493EDA /* ofxFFTLive.cpp */,
+				50261102190C4CA900493EDA /* ofxFFTLive.h */,
+			);
+			name = fft;
+			sourceTree = "<group>";
+		};
 		50A5F6AE190BABCA0081136C /* storage */ = {
 			isa = PBXGroup;
 			children = (
@@ -547,6 +574,7 @@
 				50A5F6AB190BABCA0081136C /* ofxTweakbar.h */,
 				50A5F6AC190BABCA0081136C /* ofxTweakbarINI.h */,
 				50A5F6AD190BABCA0081136C /* ofxTweakbars.h */,
+				502610FA190C4C9B00493EDA /* fft */,
 				502610B0190BF14900493EDA /* postprocess */,
 				50A5F6AE190BABCA0081136C /* storage */,
 				50A5F6B1190BABCA0081136C /* types */,
@@ -681,6 +709,7 @@
 				502610E2190BF1EE00493EDA /* BleachBypassPass.cpp in Sources */,
 				502610E3190BF1EE00493EDA /* BloomPass.cpp in Sources */,
 				502610E4190BF1EE00493EDA /* ContrastPass.cpp in Sources */,
+				50261106190C4CA900493EDA /* ofxFFTLive.cpp in Sources */,
 				502610E5190BF1EE00493EDA /* ConvolutionPass.cpp in Sources */,
 				502610E6190BF1EE00493EDA /* DofAltPass.cpp in Sources */,
 				502610E7190BF1EE00493EDA /* DofPass.cpp in Sources */,
@@ -700,6 +729,7 @@
 				502610F5190BF1EE00493EDA /* RimHighlightingPass.cpp in Sources */,
 				502610F6190BF1EE00493EDA /* SSAOPass.cpp in Sources */,
 				502610F7190BF1EE00493EDA /* ToonPass.cpp in Sources */,
+				50261105190C4CA900493EDA /* ofxFFTFile.cpp in Sources */,
 				502610F8190BF1EE00493EDA /* VerticalTiltShifPass.cpp in Sources */,
 				502610F9190BF1EE00493EDA /* ZoomBlurPass.cpp in Sources */,
 				6CD518130F7C1C723357411B /* model3DS.cpp in Sources */,
@@ -708,6 +738,7 @@
 				55C24A8150B0F09D9DAADAEE /* ofxTweakbar.cpp in Sources */,
 				71A560E1CD0B7E49FB8964D6 /* ofxTweakbars.cpp in Sources */,
 				55B5F6711043E54041610CA4 /* ofxTweakbarSimpleStorage.cpp in Sources */,
+				50261103190C4CA900493EDA /* fft.cpp in Sources */,
 				1FB5FAB2651D5208D3D804D1 /* ofxTweakbarStorage.cpp in Sources */,
 				C32B94E477B258A205F5D5DF /* ofxTweakbarBarData.cpp in Sources */,
 				230A50A5C913719DD9EAEE97 /* ofxTweakbarBool.cpp in Sources */,
@@ -715,6 +746,7 @@
 				502610A9190BAE9500493EDA /* ofxIniFile.cpp in Sources */,
 				E3E6D7B4F57EC2D344D5DD29 /* ofxTweakbarColor3f.cpp in Sources */,
 				43F1027B03EA5E8D9552A3CA /* ofxTweakbarFiles.cpp in Sources */,
+				50261104190C4CA900493EDA /* ofxFFTBase.cpp in Sources */,
 				6660EDA93954EC995358443F /* ofxTweakbarFloat.cpp in Sources */,
 				7FFF5B6C8420B97EB9A2C57F /* ofxTweakbarInt.cpp in Sources */,
 				502610A4190BAE8A00493EDA /* ConvertUTF.c in Sources */,
