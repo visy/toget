@@ -36,6 +36,11 @@ void ofxTweakbarINI::store() {
 			IniVec3f v(type_impl->getX(), type_impl->getY(), type_impl->getZ());
 			ini->setVec3f(section, type->getName(), v);
 		}
+		else if (tw_type == OFX_TW_TYPE_QUAT4F) {
+			ofxTweakbarQuat4f* type_impl = static_cast<ofxTweakbarQuat4f*>(it->second);
+			IniQuat4f v(type_impl->getX(), type_impl->getY(), type_impl->getZ(), type_impl->getS());
+			ini->setQuat4f(section, type->getName(), v);
+		}
 		++it;
 	}
 	ini->save();
@@ -72,6 +77,12 @@ void ofxTweakbarINI::retrieve() {
 			IniVec3f v(0,0,0);
 			v = ini->getVec3f(section, type->getName(), "0,0,0");
 			type_impl->setValue(v.x, v.y, v.z);
+		}
+		else if (tw_type == OFX_TW_TYPE_QUAT4F) {
+			ofxTweakbarQuat4f* type_impl = static_cast<ofxTweakbarQuat4f*>(it->second);
+			IniQuat4f v(0,0,0,0);
+			v = ini->getQuat4f(section, type->getName(), "0,0,0,0");
+			type_impl->setValue(v.x, v.y, v.z, v.w);
 		}
 		++it;
 	}

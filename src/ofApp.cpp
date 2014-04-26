@@ -2,10 +2,10 @@
 
 // scene stuff
 
-GLfloat lightOnePosition[] = {40.0, 40, 100.0, 0.0};
+GLfloat lightOnePosition[] = {40.0, 40, 50.0, 0.0};
 GLfloat lightOneColor[] = {0.99, 0.99, 0.99, 1.0};
 
-GLfloat lightTwoPosition[] = {-40.0, 40, 100.0, 0.0};
+GLfloat lightTwoPosition[] = {-40.0, 40, 50.0, 0.0};
 GLfloat lightTwoColor[] = {0.99, 0.99, 0.99, 1.0};
 
 // demo stuff
@@ -30,7 +30,7 @@ ofxIniFile* ini_file;
 ofxTweakbarINI* ini;
 float speed_float;
 float blur_float;
-
+float train_rotation[4];
 int num_files;
 int num_textures;
 float tweak;
@@ -42,7 +42,8 @@ void ofApp::setup() {
     
     settings = ofxTweakbars::create("settings", "Demo Settings");
 	settings->addFloat("speed", &speed_float)->setLabel("train speed")->setMin("0.0")->setMax("50000")->setStep("10");
-
+	settings->addQuat4f("train_rotation", &train_rotation)->setLabel("train rotation");
+    
 	settings
     ->setSize(500,200)
     ->setColor(44,44,44,180)
@@ -60,6 +61,8 @@ void ofApp::setup() {
     
     // set OFX state
     ofHideCursor();
+    
+    ofEnableAntiAliasing();
     
     ofSetBackgroundAuto(false);
     ofBackground(0,0,0);
@@ -140,8 +143,12 @@ void ofApp::draw(){
     ofClear(0,0,0);
     ofBackground(0, 0, 0, 0);
         glPushMatrix();
-            ofSetColor(255, 255, 255, 255);
-        
+            ofVec3f qaxis; float qangle;
+            ofQuaternion qr;
+            qr.set(train_rotation[0], train_rotation[1], train_rotation[2], train_rotation[3]);
+            qr.getRotate(qangle, qaxis);
+            glRotatef(qangle, qaxis[0], qaxis[1], qaxis[2]);
+    
             junaModel.setPosition(junaX, junaModel.pos.y, junaModel.pos.z);
             junaModel.draw();
         

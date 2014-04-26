@@ -120,6 +120,33 @@ IniVec3f ofxIniFile::getVec3f(
 	return v;
 }
 
+IniQuat4f ofxIniFile::getQuat4f(
+                              std::string sSection
+                              ,std::string sKey
+                              ,std::string sDefaultValue
+                              )
+{
+	// ugly as what.. but it works
+	std::string vec_string = getString(sSection, sKey, sDefaultValue);
+	std::stringstream iss(vec_string);
+	
+	std::string x,y,z,w;
+	getline(iss, x, ',');
+	getline(iss, y, ',');
+	getline(iss, z, ',');
+	getline(iss, w, ',');
+	trim(x);
+	trim(y);
+	trim(z);
+	trim(w);
+	std::string result = x + "\n" + y + "\n" + z + "\n" + w;
+	std::istringstream is(result);
+	float xx,yy,zz,ww;
+	IniQuat4f v(0,0,0,0);
+	is >> v.x >> v.y >> v.z >> v.w;
+	return v;
+}
+
 void ofxIniFile::trim(std::string& sValue) {
 	char str[sValue.size()+1];
 	int len = sValue.size();
@@ -220,6 +247,27 @@ void ofxIniFile::setVec3f(
 		std::cout << "Could not set vec3f value" << std::endl;
 	}
 }
+
+void ofxIniFile::setQuat4f(
+                          std::string sSection
+                          ,std::string sKey
+                          ,IniQuat4f oQuat4f
+                          )
+{
+	ostringstream oss;
+	oss << oQuat4f.x << ", " << oQuat4f.y << ", " << oQuat4f.z << ", " << oQuat4f.w;
+	SI_Error err = ini.SetValue(
+                                sSection.c_str()
+                                ,sKey.c_str()
+                                ,oss.str().c_str()
+                                ,NULL
+                                ,true
+                                );
+	if(err < 0) {
+		std::cout << "Could not set quat4f value" << std::endl;
+	}
+}
+
 
 void ofxIniFile::setFloat(
 					std::string sSection

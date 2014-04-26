@@ -11,6 +11,11 @@ struct IniVec3f {
 	float x,y,z;
 };
 
+struct IniQuat4f {
+	IniQuat4f(float fX, float fY, float fZ, float fW):x(fX),y(fY),z(fZ),w(fW) {};
+	float x,y,z,w;
+};
+
 /**
  * Simple wrapper for a c-style minimal ini setting parser.
  */
@@ -55,6 +60,12 @@ public:
 		,std::string sKey
 		,std::string sDefaultValue // comma separated float string
 	);
+
+    IniQuat4f getQuat4f(
+                      std::string sSection
+                      ,std::string sKey
+                      ,std::string sDefaultValue // comma separated float string
+	);
 	
 	float getFloat(
 		 std::string sSection
@@ -91,7 +102,13 @@ public:
 		,std::string sKey
 		,IniVec3f oVec3f
 	);
-	
+
+    void setQuat4f(
+                  std::string sSection
+                  ,std::string sKey
+                  ,IniQuat4f oQuat4f
+                  );
+
 	void setString(
 		std::string sSection
 		,std::string sKey
