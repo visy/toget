@@ -1,0 +1,874 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1FB5FAB2651D5208D3D804D1 /* ofxTweakbarStorage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C1CA67FFAA2E49010143D70A /* ofxTweakbarStorage.cpp */; };
+		230A50A5C913719DD9EAEE97 /* ofxTweakbarBool.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 65C6D54F79E82D52E9B659B9 /* ofxTweakbarBool.cpp */; };
+		28FD1298E26EBE1D646B0FEC /* ofxTweakbarButton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2FAAE0A56816EA92033258D8 /* ofxTweakbarButton.cpp */; };
+		2E456E832B5AC7036DB9C12A /* ofxTweakbarString.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 049957078CB5B11D9BF101E4 /* ofxTweakbarString.cpp */; };
+		433B4C76458A837A36A0E25D /* ofxTweakbarQuat4f.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 85B9386A2B6FF3B7FB768342 /* ofxTweakbarQuat4f.cpp */; };
+		43F1027B03EA5E8D9552A3CA /* ofxTweakbarFiles.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 355E772628851AE374A10949 /* ofxTweakbarFiles.cpp */; };
+		4EF7F018515AFA4FF50E1C56 /* texture3DS.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9B671653EA97071E58007CF4 /* texture3DS.cpp */; };
+		502610A2190BAD1100493EDA /* libAntTweakBar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 502610A1190BAD1100493EDA /* libAntTweakBar.a */; };
+		502610A4190BAE8A00493EDA /* ConvertUTF.c in Sources */ = {isa = PBXBuildFile; fileRef = 502610A3190BAE8A00493EDA /* ConvertUTF.c */; };
+		502610A9190BAE9500493EDA /* ofxIniFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 502610A6190BAE9500493EDA /* ofxIniFile.cpp */; };
+		502610AE190BB0AF00493EDA /* ofxTweakbarINI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 502610AC190BB0AF00493EDA /* ofxTweakbarINI.cpp */; };
+		55B5F6711043E54041610CA4 /* ofxTweakbarSimpleStorage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A0EF4606580188D35E31DA3 /* ofxTweakbarSimpleStorage.cpp */; };
+		55C24A8150B0F09D9DAADAEE /* ofxTweakbar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4477409ADD8AD36D41DD4DEF /* ofxTweakbar.cpp */; };
+		5E7E51DCCC092DF901AB83EC /* ofxTweakbarVec3f.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6F197B4C17A97EA7614239CD /* ofxTweakbarVec3f.cpp */; };
+		613F47E30F757E91EDE6093E /* ofxTweakbarType.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A4809F7428A8353A9F32CF65 /* ofxTweakbarType.cpp */; };
+		6660EDA93954EC995358443F /* ofxTweakbarFloat.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0ED68CB7715E21177F0F1E66 /* ofxTweakbarFloat.cpp */; };
+		6CD518130F7C1C723357411B /* model3DS.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E8C0F78381B8502E1E86C75E /* model3DS.cpp */; };
+		6DEA7E5F9340D3958DD66451 /* ofxTweakbarList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6CC94322DD9B1AD71FE2C929 /* ofxTweakbarList.cpp */; };
+		71A560E1CD0B7E49FB8964D6 /* ofxTweakbars.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5FE119EF288B80AB377D9607 /* ofxTweakbars.cpp */; };
+		7FFF5B6C8420B97EB9A2C57F /* ofxTweakbarInt.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 702CE98F7767C9785BA42914 /* ofxTweakbarInt.cpp */; };
+		BBAB23CB13894F3D00AA2426 /* GLUT.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = BBAB23BE13894E4700AA2426 /* GLUT.framework */; };
+		C32B94E477B258A205F5D5DF /* ofxTweakbarBarData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4159BC87122AD3C4050F2B42 /* ofxTweakbarBarData.cpp */; };
+		C4F018A2CE2A4864904C6B15 /* ofx3dModelLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A60900D640BA0115EC9FFB58 /* ofx3dModelLoader.cpp */; };
+		E3E6D7B4F57EC2D344D5DD29 /* ofxTweakbarColor3f.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 47440F8F00D895FBD580DBED /* ofxTweakbarColor3f.cpp */; };
+		E4328149138ABC9F0047C5CB /* openFrameworksDebug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E4328148138ABC890047C5CB /* openFrameworksDebug.a */; };
+		E45BE97B0E8CC7DD009D7055 /* AGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E45BE9710E8CC7DD009D7055 /* AGL.framework */; };
+		E45BE97C0E8CC7DD009D7055 /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E45BE9720E8CC7DD009D7055 /* ApplicationServices.framework */; };
+		E45BE97D0E8CC7DD009D7055 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E45BE9730E8CC7DD009D7055 /* AudioToolbox.framework */; };
+		E45BE97F0E8CC7DD009D7055 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E45BE9750E8CC7DD009D7055 /* CoreAudio.framework */; };
+		E45BE9800E8CC7DD009D7055 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E45BE9760E8CC7DD009D7055 /* CoreFoundation.framework */; };
+		E45BE9810E8CC7DD009D7055 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E45BE9770E8CC7DD009D7055 /* CoreServices.framework */; };
+		E45BE9830E8CC7DD009D7055 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E45BE9790E8CC7DD009D7055 /* OpenGL.framework */; };
+		E45BE9840E8CC7DD009D7055 /* QuickTime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E45BE97A0E8CC7DD009D7055 /* QuickTime.framework */; };
+		E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E4B69E1D0A3A1BDC003C02F2 /* main.cpp */; };
+		E4B69E210A3A1BDC003C02F2 /* ofApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E4B69E1E0A3A1BDC003C02F2 /* ofApp.cpp */; };
+		E4C2424710CC5A17004149E2 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4C2424410CC5A17004149E2 /* AppKit.framework */; };
+		E4C2424810CC5A17004149E2 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4C2424510CC5A17004149E2 /* Cocoa.framework */; };
+		E4C2424910CC5A17004149E2 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4C2424610CC5A17004149E2 /* IOKit.framework */; };
+		E4EB6799138ADC1D00A09F29 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBAB23BE13894E4700AA2426 /* GLUT.framework */; };
+		E7E077E515D3B63C0020DFD4 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7E077E415D3B63C0020DFD4 /* CoreVideo.framework */; };
+		E7E077E815D3B6510020DFD4 /* QTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7E077E715D3B6510020DFD4 /* QTKit.framework */; };
+		E7F985F815E0DEA3003869B5 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7F985F515E0DE99003869B5 /* Accelerate.framework */; };
+		F5C4901A25969941A2AE333E /* ofxTweakbarSeparator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DC55D6D1F6F58FAD4AA1DE7D /* ofxTweakbarSeparator.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E4328147138ABC890047C5CB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E4328143138ABC890047C5CB /* openFrameworksLib.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E4B27C1510CBEB8E00536013;
+			remoteInfo = openFrameworks;
+		};
+		E4EEB9AB138B136A00A80321 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E4328143138ABC890047C5CB /* openFrameworksLib.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = E4B27C1410CBEB8E00536013;
+			remoteInfo = openFrameworks;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		E4C2427710CC5ABF004149E2 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				BBAB23CB13894F3D00AA2426 /* GLUT.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		03FCAAB0E8404A74EB04B878 /* AntTweakBar.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = AntTweakBar.h; path = ../../of_v0.8.1_osx_release/addons/ofxTweakbar/src/AntTweakBar.h; sourceTree = SOURCE_ROOT; };
+		049957078CB5B11D9BF101E4 /* ofxTweakbarString.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxTweakbarString.cpp; path = ../../of_v0.8.1_osx_release/addons/ofxTweakbar/src/types/ofxTweakbarString.cpp; sourceTree = SOURCE_ROOT; };
+		08F8D8C519685BACB41D3ED2 /* ofxTweakbarColor3f.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxTweakbarColor3f.h; path = ../../of_v0.8.1_osx_release/addons/ofxTweakbar/src/types/ofxTweakbarColor3f.h; sourceTree = SOURCE_ROOT; };
+		0ED68CB7715E21177F0F1E66 /* ofxTweakbarFloat.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxTweakbarFloat.cpp; path = ../../of_v0.8.1_osx_release/addons/ofxTweakbar/src/types/ofxTweakbarFloat.cpp; sourceTree = SOURCE_ROOT; };
+		1559FCABBA9A73BEBB2414D3 /* ofxTweakbarFiles.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxTweakbarFiles.h; path = ../../of_v0.8.1_osx_release/addons/ofxTweakbar/src/types/ofxTweakbarFiles.h; sourceTree = SOURCE_ROOT; };
+		1A0EF4606580188D35E31DA3 /* ofxTweakbarSimpleStorage.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxTweakbarSimpleStorage.cpp; path = ../../of_v0.8.1_osx_release/addons/ofxTweakbar/src/storage/ofxTweakbarSimpleStorage.cpp; sourceTree = SOURCE_ROOT; };
+		1B239C6E0B63534256C9D00C /* ofxTweak.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxTweak.h; path = ../../of_v0.8.1_osx_release/addons/ofxTweakbar/src/ofxTweak.h; sourceTree = SOURCE_ROOT; };
+		1EE74AB03745D5DB79CD2B91 /* ofxTweakbarInt.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxTweakbarInt.h; path = ../../of_v0.8.1_osx_release/addons/ofxTweakbar/src/types/ofxTweakbarInt.h; sourceTree = SOURCE_ROOT; };
+		2FAAE0A56816EA92033258D8 /* ofxTweakbarButton.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxTweakbarButton.cpp; path = ../../of_v0.8.1_osx_release/addons/ofxTweakbar/src/types/ofxTweakbarButton.cpp; sourceTree = SOURCE_ROOT; };
+		355E772628851AE374A10949 /* ofxTweakbarFiles.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxTweakbarFiles.cpp; path = ../../of_v0.8.1_osx_release/addons/ofxTweakbar/src/types/ofxTweakbarFiles.cpp; sourceTree = SOURCE_ROOT; };
+		3895D126E39C2B25B829AE3D /* ofxTweakbarSimpleStorage.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxTweakbarSimpleStorage.h; path = ../../of_v0.8.1_osx_release/addons/ofxTweakbar/src/storage/ofxTweakbarSimpleStorage.h; sourceTree = SOURCE_ROOT; };
+		3904FBA6CA57E040174B718C /* Vector3DS.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Vector3DS.h; path = ../../of_v0.8.1_osx_release/addons/ofx3DModelLoader/src/3DS/Vector3DS.h; sourceTree = SOURCE_ROOT; };
+		4159BC87122AD3C4050F2B42 /* ofxTweakbarBarData.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxTweakbarBarData.cpp; path = ../../of_v0.8.1_osx_release/addons/ofxTweakbar/src/types/ofxTweakbarBarData.cpp; sourceTree = SOURCE_ROOT; };
+		4477409ADD8AD36D41DD4DEF /* ofxTweakbar.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxTweakbar.cpp; path = ../../of_v0.8.1_osx_release/addons/ofxTweakbar/src/ofxTweakbar.cpp; sourceTree = SOURCE_ROOT; };
+		47440F8F00D895FBD580DBED /* ofxTweakbarColor3f.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxTweakbarColor3f.cpp; path = ../../of_v0.8.1_osx_release/addons/ofxTweakbar/src/types/ofxTweakbarColor3f.cpp; sourceTree = SOURCE_ROOT; };
+		4ED7342F67E5E21A8459CDD1 /* ofxTweakbarStorage.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxTweakbarStorage.h; path = ../../of_v0.8.1_osx_release/addons/ofxTweakbar/src/storage/ofxTweakbarStorage.h; sourceTree = SOURCE_ROOT; };
+		4FC7F59DAA3FD22D2B463ABF /* texture3DS.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = texture3DS.h; path = ../../of_v0.8.1_osx_release/addons/ofx3DModelLoader/src/3DS/texture3DS.h; sourceTree = SOURCE_ROOT; };
+		502610A1190BAD1100493EDA /* libAntTweakBar.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libAntTweakBar.a; path = libs/libAntTweakBar.a; sourceTree = "<group>"; };
+		502610A3190BAE8A00493EDA /* ConvertUTF.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ConvertUTF.c; sourceTree = "<group>"; };
+		502610A5190BAE9500493EDA /* ConvertUTF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConvertUTF.h; sourceTree = "<group>"; };
+		502610A6190BAE9500493EDA /* ofxIniFile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxIniFile.cpp; sourceTree = "<group>"; };
+		502610A7190BAE9500493EDA /* ofxIniFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxIniFile.h; sourceTree = "<group>"; };
+		502610A8190BAE9500493EDA /* SimpleIni.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleIni.h; sourceTree = "<group>"; };
+		502610AC190BB0AF00493EDA /* ofxTweakbarINI.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxTweakbarINI.cpp; sourceTree = "<group>"; };
+		502610AD190BB0AF00493EDA /* ofxTweakbarINI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxTweakbarINI.h; sourceTree = "<group>"; };
+		50A5F6A9190BABCA0081136C /* AntTweakBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AntTweakBar.h; sourceTree = "<group>"; };
+		50A5F6AA190BABCA0081136C /* ofxTweak.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ofxTweak.h; sourceTree = "<group>"; };
+		50A5F6AB190BABCA0081136C /* ofxTweakbar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ofxTweakbar.h; sourceTree = "<group>"; };
+		50A5F6AC190BABCA0081136C /* ofxTweakbarINI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ofxTweakbarINI.h; sourceTree = "<group>"; };
+		50A5F6AD190BABCA0081136C /* ofxTweakbars.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ofxTweakbars.h; sourceTree = "<group>"; };
+		50A5F6AF190BABCA0081136C /* ofxTweakbarSimpleStorage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ofxTweakbarSimpleStorage.h; sourceTree = "<group>"; };
+		50A5F6B0190BABCA0081136C /* ofxTweakbarStorage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ofxTweakbarStorage.h; sourceTree = "<group>"; };
+		50A5F6B2190BABCA0081136C /* ofxTweakbarBarData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ofxTweakbarBarData.h; sourceTree = "<group>"; };
+		50A5F6B3190BABCA0081136C /* ofxTweakbarBool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ofxTweakbarBool.h; sourceTree = "<group>"; };
+		50A5F6B4190BABCA0081136C /* ofxTweakbarButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ofxTweakbarButton.h; sourceTree = "<group>"; };
+		50A5F6B5190BABCA0081136C /* ofxTweakbarColor3f.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ofxTweakbarColor3f.h; sourceTree = "<group>"; };
+		50A5F6B6190BABCA0081136C /* ofxTweakbarFiles.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ofxTweakbarFiles.h; sourceTree = "<group>"; };
+		50A5F6B7190BABCA0081136C /* ofxTweakbarFloat.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ofxTweakbarFloat.h; sourceTree = "<group>"; };
+		50A5F6B8190BABCA0081136C /* ofxTweakbarInt.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ofxTweakbarInt.h; sourceTree = "<group>"; };
+		50A5F6B9190BABCA0081136C /* ofxTweakbarList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ofxTweakbarList.h; sourceTree = "<group>"; };
+		50A5F6BA190BABCA0081136C /* ofxTweakbarQuat4f.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ofxTweakbarQuat4f.h; sourceTree = "<group>"; };
+		50A5F6BB190BABCA0081136C /* ofxTweakbarSeparator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ofxTweakbarSeparator.h; sourceTree = "<group>"; };
+		50A5F6BC190BABCA0081136C /* ofxTweakbarString.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ofxTweakbarString.h; sourceTree = "<group>"; };
+		50A5F6BD190BABCA0081136C /* ofxTweakbarType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ofxTweakbarType.h; sourceTree = "<group>"; };
+		50A5F6BE190BABCA0081136C /* ofxTweakbarTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ofxTweakbarTypes.h; sourceTree = "<group>"; };
+		50A5F6BF190BABCA0081136C /* ofxTweakbarVec3f.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ofxTweakbarVec3f.h; sourceTree = "<group>"; };
+		5FE119EF288B80AB377D9607 /* ofxTweakbars.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxTweakbars.cpp; path = ../../of_v0.8.1_osx_release/addons/ofxTweakbar/src/ofxTweakbars.cpp; sourceTree = SOURCE_ROOT; };
+		6542931D5108F217BA7B2F62 /* ofxTweakbarQuat4f.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxTweakbarQuat4f.h; path = ../../of_v0.8.1_osx_release/addons/ofxTweakbar/src/types/ofxTweakbarQuat4f.h; sourceTree = SOURCE_ROOT; };
+		65C6D54F79E82D52E9B659B9 /* ofxTweakbarBool.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxTweakbarBool.cpp; path = ../../of_v0.8.1_osx_release/addons/ofxTweakbar/src/types/ofxTweakbarBool.cpp; sourceTree = SOURCE_ROOT; };
+		6617F9C38C46E2A1C1491E90 /* ofxTweakbarBarData.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxTweakbarBarData.h; path = ../../of_v0.8.1_osx_release/addons/ofxTweakbar/src/types/ofxTweakbarBarData.h; sourceTree = SOURCE_ROOT; };
+		686CF686217AFB94A4DC94B9 /* model3DS.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = model3DS.h; path = ../../of_v0.8.1_osx_release/addons/ofx3DModelLoader/src/3DS/model3DS.h; sourceTree = SOURCE_ROOT; };
+		69AAE69858492E81E5F04CDC /* ofxTweakbarFloat.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxTweakbarFloat.h; path = ../../of_v0.8.1_osx_release/addons/ofxTweakbar/src/types/ofxTweakbarFloat.h; sourceTree = SOURCE_ROOT; };
+		6CC94322DD9B1AD71FE2C929 /* ofxTweakbarList.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxTweakbarList.cpp; path = ../../of_v0.8.1_osx_release/addons/ofxTweakbar/src/types/ofxTweakbarList.cpp; sourceTree = SOURCE_ROOT; };
+		6F197B4C17A97EA7614239CD /* ofxTweakbarVec3f.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxTweakbarVec3f.cpp; path = ../../of_v0.8.1_osx_release/addons/ofxTweakbar/src/types/ofxTweakbarVec3f.cpp; sourceTree = SOURCE_ROOT; };
+		702CE98F7767C9785BA42914 /* ofxTweakbarInt.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxTweakbarInt.cpp; path = ../../of_v0.8.1_osx_release/addons/ofxTweakbar/src/types/ofxTweakbarInt.cpp; sourceTree = SOURCE_ROOT; };
+		85B9386A2B6FF3B7FB768342 /* ofxTweakbarQuat4f.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxTweakbarQuat4f.cpp; path = ../../of_v0.8.1_osx_release/addons/ofxTweakbar/src/types/ofxTweakbarQuat4f.cpp; sourceTree = SOURCE_ROOT; };
+		90EFD8466235D31C84F548A9 /* ofxTweakbarList.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxTweakbarList.h; path = ../../of_v0.8.1_osx_release/addons/ofxTweakbar/src/types/ofxTweakbarList.h; sourceTree = SOURCE_ROOT; };
+		9B671653EA97071E58007CF4 /* texture3DS.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = texture3DS.cpp; path = ../../of_v0.8.1_osx_release/addons/ofx3DModelLoader/src/3DS/texture3DS.cpp; sourceTree = SOURCE_ROOT; };
+		9D728661E493CB572CFEFDB9 /* ofxTweakbarTypes.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxTweakbarTypes.h; path = ../../of_v0.8.1_osx_release/addons/ofxTweakbar/src/types/ofxTweakbarTypes.h; sourceTree = SOURCE_ROOT; };
+		A1AF0629C1B06384AA836987 /* ofx3DModelLoader.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofx3DModelLoader.h; path = ../../of_v0.8.1_osx_release/addons/ofx3DModelLoader/src/ofx3DModelLoader.h; sourceTree = SOURCE_ROOT; };
+		A4809F7428A8353A9F32CF65 /* ofxTweakbarType.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxTweakbarType.cpp; path = ../../of_v0.8.1_osx_release/addons/ofxTweakbar/src/types/ofxTweakbarType.cpp; sourceTree = SOURCE_ROOT; };
+		A50E98D040617450C71CA896 /* ofxTweakbarSeparator.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxTweakbarSeparator.h; path = ../../of_v0.8.1_osx_release/addons/ofxTweakbar/src/types/ofxTweakbarSeparator.h; sourceTree = SOURCE_ROOT; };
+		A60900D640BA0115EC9FFB58 /* ofx3dModelLoader.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofx3dModelLoader.cpp; path = ../../of_v0.8.1_osx_release/addons/ofx3DModelLoader/src/ofx3dModelLoader.cpp; sourceTree = SOURCE_ROOT; };
+		A8B2274859149A77DBFF1C41 /* ofxTweakbars.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxTweakbars.h; path = ../../of_v0.8.1_osx_release/addons/ofxTweakbar/src/ofxTweakbars.h; sourceTree = SOURCE_ROOT; };
+		BBAB23BE13894E4700AA2426 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = ../../of_v0.8.1_osx_release/libs/glut/lib/osx/GLUT.framework; sourceTree = "<group>"; };
+		C1CA67FFAA2E49010143D70A /* ofxTweakbarStorage.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxTweakbarStorage.cpp; path = ../../of_v0.8.1_osx_release/addons/ofxTweakbar/src/storage/ofxTweakbarStorage.cpp; sourceTree = SOURCE_ROOT; };
+		C9A47D0575422A2C77D1CADC /* ofxTweakbar.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxTweakbar.h; path = ../../of_v0.8.1_osx_release/addons/ofxTweakbar/src/ofxTweakbar.h; sourceTree = SOURCE_ROOT; };
+		CE0AD15C0F69B058A6F2BCAD /* ofxTweakbarString.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxTweakbarString.h; path = ../../of_v0.8.1_osx_release/addons/ofxTweakbar/src/types/ofxTweakbarString.h; sourceTree = SOURCE_ROOT; };
+		CE6EE978339D8DD80F83A754 /* ofx3DBaseLoader.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofx3DBaseLoader.h; path = ../../of_v0.8.1_osx_release/addons/ofx3DModelLoader/src/ofx3DBaseLoader.h; sourceTree = SOURCE_ROOT; };
+		D714AFF3CBFCE9DB3E28F2B0 /* ofxTweakbarType.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxTweakbarType.h; path = ../../of_v0.8.1_osx_release/addons/ofxTweakbar/src/types/ofxTweakbarType.h; sourceTree = SOURCE_ROOT; };
+		DC55D6D1F6F58FAD4AA1DE7D /* ofxTweakbarSeparator.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxTweakbarSeparator.cpp; path = ../../of_v0.8.1_osx_release/addons/ofxTweakbar/src/types/ofxTweakbarSeparator.cpp; sourceTree = SOURCE_ROOT; };
+		DD88D41366695AEA13DD15F6 /* AntTweakBar.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = AntTweakBar.h; path = ../../of_v0.8.1_osx_release/addons/ofxTweakbar/src/include/AntTweakBar.h; sourceTree = SOURCE_ROOT; };
+		E2F2C01F8FBCD62C24186062 /* ofxTweakbarBool.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxTweakbarBool.h; path = ../../of_v0.8.1_osx_release/addons/ofxTweakbar/src/types/ofxTweakbarBool.h; sourceTree = SOURCE_ROOT; };
+		E4328143138ABC890047C5CB /* openFrameworksLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = openFrameworksLib.xcodeproj; path = ../../of_v0.8.1_osx_release/libs/openFrameworksCompiled/project/osx/openFrameworksLib.xcodeproj; sourceTree = SOURCE_ROOT; };
+		E45BE9710E8CC7DD009D7055 /* AGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AGL.framework; path = /System/Library/Frameworks/AGL.framework; sourceTree = "<absolute>"; };
+		E45BE9720E8CC7DD009D7055 /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = /System/Library/Frameworks/ApplicationServices.framework; sourceTree = "<absolute>"; };
+		E45BE9730E8CC7DD009D7055 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = /System/Library/Frameworks/AudioToolbox.framework; sourceTree = "<absolute>"; };
+		E45BE9750E8CC7DD009D7055 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = /System/Library/Frameworks/CoreAudio.framework; sourceTree = "<absolute>"; };
+		E45BE9760E8CC7DD009D7055 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = /System/Library/Frameworks/CoreFoundation.framework; sourceTree = "<absolute>"; };
+		E45BE9770E8CC7DD009D7055 /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = /System/Library/Frameworks/CoreServices.framework; sourceTree = "<absolute>"; };
+		E45BE9790E8CC7DD009D7055 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = /System/Library/Frameworks/OpenGL.framework; sourceTree = "<absolute>"; };
+		E45BE97A0E8CC7DD009D7055 /* QuickTime.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickTime.framework; path = /System/Library/Frameworks/QuickTime.framework; sourceTree = "<absolute>"; };
+		E4B69B5B0A3A1756003C02F2 /* stream14demoDebug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = stream14demoDebug.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E4B69E1D0A3A1BDC003C02F2 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = src/main.cpp; sourceTree = SOURCE_ROOT; };
+		E4B69E1E0A3A1BDC003C02F2 /* ofApp.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofApp.cpp; path = src/ofApp.cpp; sourceTree = SOURCE_ROOT; };
+		E4B69E1F0A3A1BDC003C02F2 /* ofApp.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ofApp.h; path = src/ofApp.h; sourceTree = SOURCE_ROOT; };
+		E4B6FCAD0C3E899E008CF71C /* openFrameworks-Info.plist */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.plist.xml; path = "openFrameworks-Info.plist"; sourceTree = "<group>"; };
+		E4C2424410CC5A17004149E2 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
+		E4C2424510CC5A17004149E2 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		E4C2424610CC5A17004149E2 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = /System/Library/Frameworks/IOKit.framework; sourceTree = "<absolute>"; };
+		E4EB691F138AFCF100A09F29 /* CoreOF.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = CoreOF.xcconfig; path = ../../of_v0.8.1_osx_release/libs/openFrameworksCompiled/project/osx/CoreOF.xcconfig; sourceTree = SOURCE_ROOT; };
+		E4EB6923138AFD0F00A09F29 /* Project.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Project.xcconfig; sourceTree = "<group>"; };
+		E7C64FE3163C60081396F06B /* ofxTweakbarVec3f.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxTweakbarVec3f.h; path = ../../of_v0.8.1_osx_release/addons/ofxTweakbar/src/types/ofxTweakbarVec3f.h; sourceTree = SOURCE_ROOT; };
+		E7E077E415D3B63C0020DFD4 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = /System/Library/Frameworks/CoreVideo.framework; sourceTree = "<absolute>"; };
+		E7E077E715D3B6510020DFD4 /* QTKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QTKit.framework; path = /System/Library/Frameworks/QTKit.framework; sourceTree = "<absolute>"; };
+		E7F985F515E0DE99003869B5 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = /System/Library/Frameworks/Accelerate.framework; sourceTree = "<absolute>"; };
+		E8C0F78381B8502E1E86C75E /* model3DS.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = model3DS.cpp; path = ../../of_v0.8.1_osx_release/addons/ofx3DModelLoader/src/3DS/model3DS.cpp; sourceTree = SOURCE_ROOT; };
+		F2630D142AAE4AB64A0A6E5A /* ofxTweakbarButton.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxTweakbarButton.h; path = ../../of_v0.8.1_osx_release/addons/ofxTweakbar/src/types/ofxTweakbarButton.h; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E4B69B590A3A1756003C02F2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				502610A2190BAD1100493EDA /* libAntTweakBar.a in Frameworks */,
+				E7F985F815E0DEA3003869B5 /* Accelerate.framework in Frameworks */,
+				E7E077E815D3B6510020DFD4 /* QTKit.framework in Frameworks */,
+				E4EB6799138ADC1D00A09F29 /* GLUT.framework in Frameworks */,
+				E4328149138ABC9F0047C5CB /* openFrameworksDebug.a in Frameworks */,
+				E45BE97B0E8CC7DD009D7055 /* AGL.framework in Frameworks */,
+				E45BE97C0E8CC7DD009D7055 /* ApplicationServices.framework in Frameworks */,
+				E45BE97D0E8CC7DD009D7055 /* AudioToolbox.framework in Frameworks */,
+				E45BE97F0E8CC7DD009D7055 /* CoreAudio.framework in Frameworks */,
+				E45BE9800E8CC7DD009D7055 /* CoreFoundation.framework in Frameworks */,
+				E45BE9810E8CC7DD009D7055 /* CoreServices.framework in Frameworks */,
+				E45BE9830E8CC7DD009D7055 /* OpenGL.framework in Frameworks */,
+				E45BE9840E8CC7DD009D7055 /* QuickTime.framework in Frameworks */,
+				E4C2424710CC5A17004149E2 /* AppKit.framework in Frameworks */,
+				E4C2424810CC5A17004149E2 /* Cocoa.framework in Frameworks */,
+				E4C2424910CC5A17004149E2 /* IOKit.framework in Frameworks */,
+				E7E077E515D3B63C0020DFD4 /* CoreVideo.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0382522306FDF8CD7B8F71B5 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				03FCAAB0E8404A74EB04B878 /* AntTweakBar.h */,
+				AE146EAD65127ABD0734E351 /* include */,
+				1B239C6E0B63534256C9D00C /* ofxTweak.h */,
+				4477409ADD8AD36D41DD4DEF /* ofxTweakbar.cpp */,
+				C9A47D0575422A2C77D1CADC /* ofxTweakbar.h */,
+				5FE119EF288B80AB377D9607 /* ofxTweakbars.cpp */,
+				A8B2274859149A77DBFF1C41 /* ofxTweakbars.h */,
+				6BB253F5AC2C348A0F4C7BE1 /* storage */,
+				4D978F9E08C8A50EE373748E /* types */,
+			);
+			name = src;
+			sourceTree = "<group>";
+		};
+		4B90D8787200A10035EA2FB0 /* ofxTweakbar */ = {
+			isa = PBXGroup;
+			children = (
+				0382522306FDF8CD7B8F71B5 /* src */,
+			);
+			name = ofxTweakbar;
+			sourceTree = "<group>";
+		};
+		4D978F9E08C8A50EE373748E /* types */ = {
+			isa = PBXGroup;
+			children = (
+				4159BC87122AD3C4050F2B42 /* ofxTweakbarBarData.cpp */,
+				6617F9C38C46E2A1C1491E90 /* ofxTweakbarBarData.h */,
+				65C6D54F79E82D52E9B659B9 /* ofxTweakbarBool.cpp */,
+				E2F2C01F8FBCD62C24186062 /* ofxTweakbarBool.h */,
+				2FAAE0A56816EA92033258D8 /* ofxTweakbarButton.cpp */,
+				F2630D142AAE4AB64A0A6E5A /* ofxTweakbarButton.h */,
+				47440F8F00D895FBD580DBED /* ofxTweakbarColor3f.cpp */,
+				08F8D8C519685BACB41D3ED2 /* ofxTweakbarColor3f.h */,
+				355E772628851AE374A10949 /* ofxTweakbarFiles.cpp */,
+				1559FCABBA9A73BEBB2414D3 /* ofxTweakbarFiles.h */,
+				0ED68CB7715E21177F0F1E66 /* ofxTweakbarFloat.cpp */,
+				69AAE69858492E81E5F04CDC /* ofxTweakbarFloat.h */,
+				702CE98F7767C9785BA42914 /* ofxTweakbarInt.cpp */,
+				1EE74AB03745D5DB79CD2B91 /* ofxTweakbarInt.h */,
+				6CC94322DD9B1AD71FE2C929 /* ofxTweakbarList.cpp */,
+				90EFD8466235D31C84F548A9 /* ofxTweakbarList.h */,
+				85B9386A2B6FF3B7FB768342 /* ofxTweakbarQuat4f.cpp */,
+				6542931D5108F217BA7B2F62 /* ofxTweakbarQuat4f.h */,
+				DC55D6D1F6F58FAD4AA1DE7D /* ofxTweakbarSeparator.cpp */,
+				A50E98D040617450C71CA896 /* ofxTweakbarSeparator.h */,
+				049957078CB5B11D9BF101E4 /* ofxTweakbarString.cpp */,
+				CE0AD15C0F69B058A6F2BCAD /* ofxTweakbarString.h */,
+				A4809F7428A8353A9F32CF65 /* ofxTweakbarType.cpp */,
+				D714AFF3CBFCE9DB3E28F2B0 /* ofxTweakbarType.h */,
+				9D728661E493CB572CFEFDB9 /* ofxTweakbarTypes.h */,
+				6F197B4C17A97EA7614239CD /* ofxTweakbarVec3f.cpp */,
+				E7C64FE3163C60081396F06B /* ofxTweakbarVec3f.h */,
+			);
+			name = types;
+			sourceTree = "<group>";
+		};
+		502610A0190BACE800493EDA /* libs */ = {
+			isa = PBXGroup;
+			children = (
+				502610A1190BAD1100493EDA /* libAntTweakBar.a */,
+			);
+			name = libs;
+			sourceTree = "<group>";
+		};
+		50A5F6AE190BABCA0081136C /* storage */ = {
+			isa = PBXGroup;
+			children = (
+				502610AC190BB0AF00493EDA /* ofxTweakbarINI.cpp */,
+				502610AD190BB0AF00493EDA /* ofxTweakbarINI.h */,
+				50A5F6AF190BABCA0081136C /* ofxTweakbarSimpleStorage.h */,
+				50A5F6B0190BABCA0081136C /* ofxTweakbarStorage.h */,
+			);
+			path = storage;
+			sourceTree = "<group>";
+		};
+		50A5F6B1190BABCA0081136C /* types */ = {
+			isa = PBXGroup;
+			children = (
+				50A5F6B2190BABCA0081136C /* ofxTweakbarBarData.h */,
+				50A5F6B3190BABCA0081136C /* ofxTweakbarBool.h */,
+				50A5F6B4190BABCA0081136C /* ofxTweakbarButton.h */,
+				50A5F6B5190BABCA0081136C /* ofxTweakbarColor3f.h */,
+				50A5F6B6190BABCA0081136C /* ofxTweakbarFiles.h */,
+				50A5F6B7190BABCA0081136C /* ofxTweakbarFloat.h */,
+				50A5F6B8190BABCA0081136C /* ofxTweakbarInt.h */,
+				50A5F6B9190BABCA0081136C /* ofxTweakbarList.h */,
+				50A5F6BA190BABCA0081136C /* ofxTweakbarQuat4f.h */,
+				50A5F6BB190BABCA0081136C /* ofxTweakbarSeparator.h */,
+				50A5F6BC190BABCA0081136C /* ofxTweakbarString.h */,
+				50A5F6BD190BABCA0081136C /* ofxTweakbarType.h */,
+				50A5F6BE190BABCA0081136C /* ofxTweakbarTypes.h */,
+				50A5F6BF190BABCA0081136C /* ofxTweakbarVec3f.h */,
+			);
+			path = types;
+			sourceTree = "<group>";
+		};
+		6BB253F5AC2C348A0F4C7BE1 /* storage */ = {
+			isa = PBXGroup;
+			children = (
+				1A0EF4606580188D35E31DA3 /* ofxTweakbarSimpleStorage.cpp */,
+				3895D126E39C2B25B829AE3D /* ofxTweakbarSimpleStorage.h */,
+				C1CA67FFAA2E49010143D70A /* ofxTweakbarStorage.cpp */,
+				4ED7342F67E5E21A8459CDD1 /* ofxTweakbarStorage.h */,
+			);
+			name = storage;
+			sourceTree = "<group>";
+		};
+		9F66160B6D853AA730F370C2 /* ofx3DModelLoader */ = {
+			isa = PBXGroup;
+			children = (
+				E8D037DDFDFB2EC263740AC3 /* src */,
+			);
+			name = ofx3DModelLoader;
+			sourceTree = "<group>";
+		};
+		AE146EAD65127ABD0734E351 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				DD88D41366695AEA13DD15F6 /* AntTweakBar.h */,
+			);
+			name = include;
+			sourceTree = "<group>";
+		};
+		BB4B014C10F69532006C3DED /* addons */ = {
+			isa = PBXGroup;
+			children = (
+				9F66160B6D853AA730F370C2 /* ofx3DModelLoader */,
+				4B90D8787200A10035EA2FB0 /* ofxTweakbar */,
+			);
+			name = addons;
+			sourceTree = "<group>";
+		};
+		BBAB23C913894ECA00AA2426 /* system frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E7F985F515E0DE99003869B5 /* Accelerate.framework */,
+				E4C2424410CC5A17004149E2 /* AppKit.framework */,
+				E4C2424510CC5A17004149E2 /* Cocoa.framework */,
+				E4C2424610CC5A17004149E2 /* IOKit.framework */,
+				E45BE9710E8CC7DD009D7055 /* AGL.framework */,
+				E45BE9720E8CC7DD009D7055 /* ApplicationServices.framework */,
+				E45BE9730E8CC7DD009D7055 /* AudioToolbox.framework */,
+				E45BE9750E8CC7DD009D7055 /* CoreAudio.framework */,
+				E45BE9760E8CC7DD009D7055 /* CoreFoundation.framework */,
+				E45BE9770E8CC7DD009D7055 /* CoreServices.framework */,
+				E45BE9790E8CC7DD009D7055 /* OpenGL.framework */,
+				E45BE97A0E8CC7DD009D7055 /* QuickTime.framework */,
+				E7E077E415D3B63C0020DFD4 /* CoreVideo.framework */,
+				E7E077E715D3B6510020DFD4 /* QTKit.framework */,
+			);
+			name = "system frameworks";
+			sourceTree = "<group>";
+		};
+		BBAB23CA13894EDB00AA2426 /* 3rd party frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BBAB23BE13894E4700AA2426 /* GLUT.framework */,
+			);
+			name = "3rd party frameworks";
+			sourceTree = "<group>";
+		};
+		E4328144138ABC890047C5CB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E4328148138ABC890047C5CB /* openFrameworksDebug.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E45BE5980E8CC70C009D7055 /* frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BBAB23CA13894EDB00AA2426 /* 3rd party frameworks */,
+				BBAB23C913894ECA00AA2426 /* system frameworks */,
+			);
+			name = frameworks;
+			sourceTree = "<group>";
+		};
+		E4B69B4A0A3A1720003C02F2 = {
+			isa = PBXGroup;
+			children = (
+				E4B6FCAD0C3E899E008CF71C /* openFrameworks-Info.plist */,
+				E4EB6923138AFD0F00A09F29 /* Project.xcconfig */,
+				502610A0190BACE800493EDA /* libs */,
+				E4B69E1C0A3A1BDC003C02F2 /* src */,
+				E4EEC9E9138DF44700A80321 /* openFrameworks */,
+				BB4B014C10F69532006C3DED /* addons */,
+				E45BE5980E8CC70C009D7055 /* frameworks */,
+				E4B69B5B0A3A1756003C02F2 /* stream14demoDebug.app */,
+			);
+			sourceTree = "<group>";
+		};
+		E4B69E1C0A3A1BDC003C02F2 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				502610A5190BAE9500493EDA /* ConvertUTF.h */,
+				502610A6190BAE9500493EDA /* ofxIniFile.cpp */,
+				502610A7190BAE9500493EDA /* ofxIniFile.h */,
+				502610A8190BAE9500493EDA /* SimpleIni.h */,
+				502610A3190BAE8A00493EDA /* ConvertUTF.c */,
+				50A5F6A9190BABCA0081136C /* AntTweakBar.h */,
+				50A5F6AA190BABCA0081136C /* ofxTweak.h */,
+				50A5F6AB190BABCA0081136C /* ofxTweakbar.h */,
+				50A5F6AC190BABCA0081136C /* ofxTweakbarINI.h */,
+				50A5F6AD190BABCA0081136C /* ofxTweakbars.h */,
+				50A5F6AE190BABCA0081136C /* storage */,
+				50A5F6B1190BABCA0081136C /* types */,
+				E4B69E1D0A3A1BDC003C02F2 /* main.cpp */,
+				E4B69E1E0A3A1BDC003C02F2 /* ofApp.cpp */,
+				E4B69E1F0A3A1BDC003C02F2 /* ofApp.h */,
+			);
+			path = src;
+			sourceTree = SOURCE_ROOT;
+		};
+		E4EEC9E9138DF44700A80321 /* openFrameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E4EB691F138AFCF100A09F29 /* CoreOF.xcconfig */,
+				E4328143138ABC890047C5CB /* openFrameworksLib.xcodeproj */,
+			);
+			name = openFrameworks;
+			sourceTree = "<group>";
+		};
+		E8D037DDFDFB2EC263740AC3 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				ED90198659E5967FB2EA39D7 /* 3DS */,
+				CE6EE978339D8DD80F83A754 /* ofx3DBaseLoader.h */,
+				A60900D640BA0115EC9FFB58 /* ofx3dModelLoader.cpp */,
+				A1AF0629C1B06384AA836987 /* ofx3DModelLoader.h */,
+			);
+			name = src;
+			sourceTree = "<group>";
+		};
+		ED90198659E5967FB2EA39D7 /* 3DS */ = {
+			isa = PBXGroup;
+			children = (
+				E8C0F78381B8502E1E86C75E /* model3DS.cpp */,
+				686CF686217AFB94A4DC94B9 /* model3DS.h */,
+				9B671653EA97071E58007CF4 /* texture3DS.cpp */,
+				4FC7F59DAA3FD22D2B463ABF /* texture3DS.h */,
+				3904FBA6CA57E040174B718C /* Vector3DS.h */,
+			);
+			name = 3DS;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E4B69B5A0A3A1756003C02F2 /* stream14demo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E4B69B5F0A3A1757003C02F2 /* Build configuration list for PBXNativeTarget "stream14demo" */;
+			buildPhases = (
+				E4B69B580A3A1756003C02F2 /* Sources */,
+				E4B69B590A3A1756003C02F2 /* Frameworks */,
+				E4B6FFFD0C3F9AB9008CF71C /* ShellScript */,
+				E4C2427710CC5ABF004149E2 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E4EEB9AC138B136A00A80321 /* PBXTargetDependency */,
+			);
+			name = stream14demo;
+			productName = myOFApp;
+			productReference = E4B69B5B0A3A1756003C02F2 /* stream14demoDebug.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E4B69B4C0A3A1720003C02F2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+			};
+			buildConfigurationList = E4B69B4D0A3A1720003C02F2 /* Build configuration list for PBXProject "stream14demo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+			);
+			mainGroup = E4B69B4A0A3A1720003C02F2;
+			productRefGroup = E4B69B4A0A3A1720003C02F2;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = E4328144138ABC890047C5CB /* Products */;
+					ProjectRef = E4328143138ABC890047C5CB /* openFrameworksLib.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				E4B69B5A0A3A1756003C02F2 /* stream14demo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		E4328148138ABC890047C5CB /* openFrameworksDebug.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = openFrameworksDebug.a;
+			remoteRef = E4328147138ABC890047C5CB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		E4B6FFFD0C3F9AB9008CF71C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "cp -f ../../of_v0.8.1_osx_release/libs/fmodex/lib/osx/libfmodex.dylib \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/MacOS/libfmodex.dylib\"; install_name_tool -change ./libfmodex.dylib @executable_path/libfmodex.dylib \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/MacOS/$PRODUCT_NAME\";\nmkdir -p \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/Resources/\"\ncp -f \"$ICON_FILE\" \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/Resources/\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E4B69B580A3A1756003C02F2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */,
+				E4B69E210A3A1BDC003C02F2 /* ofApp.cpp in Sources */,
+				6CD518130F7C1C723357411B /* model3DS.cpp in Sources */,
+				4EF7F018515AFA4FF50E1C56 /* texture3DS.cpp in Sources */,
+				C4F018A2CE2A4864904C6B15 /* ofx3dModelLoader.cpp in Sources */,
+				55C24A8150B0F09D9DAADAEE /* ofxTweakbar.cpp in Sources */,
+				71A560E1CD0B7E49FB8964D6 /* ofxTweakbars.cpp in Sources */,
+				55B5F6711043E54041610CA4 /* ofxTweakbarSimpleStorage.cpp in Sources */,
+				1FB5FAB2651D5208D3D804D1 /* ofxTweakbarStorage.cpp in Sources */,
+				C32B94E477B258A205F5D5DF /* ofxTweakbarBarData.cpp in Sources */,
+				230A50A5C913719DD9EAEE97 /* ofxTweakbarBool.cpp in Sources */,
+				28FD1298E26EBE1D646B0FEC /* ofxTweakbarButton.cpp in Sources */,
+				502610A9190BAE9500493EDA /* ofxIniFile.cpp in Sources */,
+				E3E6D7B4F57EC2D344D5DD29 /* ofxTweakbarColor3f.cpp in Sources */,
+				43F1027B03EA5E8D9552A3CA /* ofxTweakbarFiles.cpp in Sources */,
+				6660EDA93954EC995358443F /* ofxTweakbarFloat.cpp in Sources */,
+				7FFF5B6C8420B97EB9A2C57F /* ofxTweakbarInt.cpp in Sources */,
+				502610A4190BAE8A00493EDA /* ConvertUTF.c in Sources */,
+				502610AE190BB0AF00493EDA /* ofxTweakbarINI.cpp in Sources */,
+				6DEA7E5F9340D3958DD66451 /* ofxTweakbarList.cpp in Sources */,
+				433B4C76458A837A36A0E25D /* ofxTweakbarQuat4f.cpp in Sources */,
+				F5C4901A25969941A2AE333E /* ofxTweakbarSeparator.cpp in Sources */,
+				2E456E832B5AC7036DB9C12A /* ofxTweakbarString.cpp in Sources */,
+				613F47E30F757E91EDE6093E /* ofxTweakbarType.cpp in Sources */,
+				5E7E51DCCC092DF901AB83EC /* ofxTweakbarVec3f.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E4EEB9AC138B136A00A80321 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = openFrameworks;
+			targetProxy = E4EEB9AB138B136A00A80321 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		E4B69B4E0A3A1720003C02F2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E4EB6923138AFD0F00A09F29 /* Project.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(NATIVE_ARCH)";
+				CONFIGURATION_BUILD_DIR = "$(SRCROOT)/bin/";
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
+				GCC_AUTO_VECTORIZATION = YES;
+				GCC_ENABLE_SSE3_EXTENSIONS = YES;
+				GCC_ENABLE_SUPPLEMENTAL_SSE3_INSTRUCTIONS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = YES;
+				GCC_WARN_ABOUT_INVALID_OFFSETOF_MACRO = NO;
+				GCC_WARN_ALLOW_INCOMPLETE_PROTOCOL = NO;
+				GCC_WARN_UNINITIALIZED_AUTOS = NO;
+				GCC_WARN_UNUSED_VALUE = NO;
+				GCC_WARN_UNUSED_VARIABLE = NO;
+				HEADER_SEARCH_PATHS = (
+					"$(OF_CORE_HEADERS)",
+					../../of_v0.8.1_osx_release/addons/ofx3DModelLoader/libs,
+					../../of_v0.8.1_osx_release/addons/ofx3DModelLoader/src,
+					../../of_v0.8.1_osx_release/addons/ofx3DModelLoader/src/3DS,
+					../../of_v0.8.1_osx_release/addons/ofxTweakbar/libs,
+					../../of_v0.8.1_osx_release/addons/ofxTweakbar/src,
+					../../of_v0.8.1_osx_release/addons/ofxTweakbar/src/include,
+					../../of_v0.8.1_osx_release/addons/ofxTweakbar/src/lib,
+					../../of_v0.8.1_osx_release/addons/ofxTweakbar/src/lib/mac,
+					../../of_v0.8.1_osx_release/addons/ofxTweakbar/src/lib/win,
+					../../of_v0.8.1_osx_release/addons/ofxTweakbar/src/storage,
+					../../of_v0.8.1_osx_release/addons/ofxTweakbar/src/types,
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				OTHER_CPLUSPLUSFLAGS = (
+					"-D__MACOSX_CORE__",
+					"-lpthread",
+					"-mtune=native",
+				);
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		E4B69B4F0A3A1720003C02F2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E4EB6923138AFD0F00A09F29 /* Project.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(NATIVE_ARCH)";
+				CONFIGURATION_BUILD_DIR = "$(SRCROOT)/bin/";
+				COPY_PHASE_STRIP = YES;
+				DEAD_CODE_STRIPPING = YES;
+				GCC_AUTO_VECTORIZATION = YES;
+				GCC_ENABLE_SSE3_EXTENSIONS = YES;
+				GCC_ENABLE_SUPPLEMENTAL_SSE3_INSTRUCTIONS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_UNROLL_LOOPS = YES;
+				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = YES;
+				GCC_WARN_ABOUT_INVALID_OFFSETOF_MACRO = NO;
+				GCC_WARN_ALLOW_INCOMPLETE_PROTOCOL = NO;
+				GCC_WARN_UNINITIALIZED_AUTOS = NO;
+				GCC_WARN_UNUSED_VALUE = NO;
+				GCC_WARN_UNUSED_VARIABLE = NO;
+				HEADER_SEARCH_PATHS = (
+					"$(OF_CORE_HEADERS)",
+					../../of_v0.8.1_osx_release/addons/ofx3DModelLoader/libs,
+					../../of_v0.8.1_osx_release/addons/ofx3DModelLoader/src,
+					../../of_v0.8.1_osx_release/addons/ofx3DModelLoader/src/3DS,
+					../../of_v0.8.1_osx_release/addons/ofxTweakbar/libs,
+					../../of_v0.8.1_osx_release/addons/ofxTweakbar/src,
+					../../of_v0.8.1_osx_release/addons/ofxTweakbar/src/include,
+					../../of_v0.8.1_osx_release/addons/ofxTweakbar/src/lib,
+					../../of_v0.8.1_osx_release/addons/ofxTweakbar/src/lib/mac,
+					../../of_v0.8.1_osx_release/addons/ofxTweakbar/src/lib/win,
+					../../of_v0.8.1_osx_release/addons/ofxTweakbar/src/storage,
+					../../of_v0.8.1_osx_release/addons/ofxTweakbar/src/types,
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				OTHER_CPLUSPLUSFLAGS = (
+					"-D__MACOSX_CORE__",
+					"-lpthread",
+					"-mtune=native",
+				);
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		E4B69B600A3A1757003C02F2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
+				);
+				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/../../of_v0.8.1_osx_release/libs/glut/lib/osx\"";
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_MODEL_TUNING = NONE;
+				ICON = "$(ICON_NAME_DEBUG)";
+				ICON_FILE = "$(ICON_FILE_PATH)$(ICON)";
+				INFOPLIST_FILE = "openFrameworks-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_2)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_3)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_4)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_5)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_6)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_7)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_8)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_9)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_10)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_11)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_12)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_13)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_14)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_15)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_2)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_3)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_7)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_8)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_9)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_10)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_11)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_12)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_13)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_16)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_17)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_18)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_19)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_20)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_21)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_22)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_23)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_24)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_25)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_26)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_27)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_28)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_29)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_30)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_31)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_32)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_33)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_34)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_35)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_36)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_37)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_38)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_39)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_40)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_41)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_42)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_43)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_44)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_45)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_46)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_47)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_48)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_49)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_50)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_51)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_52)",
+					"$(PROJECT_DIR)/libs",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)Debug";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		E4B69B610A3A1757003C02F2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
+				);
+				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/../../of_v0.8.1_osx_release/libs/glut/lib/osx\"";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_MODEL_TUNING = NONE;
+				ICON = "$(ICON_NAME_RELEASE)";
+				ICON_FILE = "$(ICON_FILE_PATH)$(ICON)";
+				INFOPLIST_FILE = "openFrameworks-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_2)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_3)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_4)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_5)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_6)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_7)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_8)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_9)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_10)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_11)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_12)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_13)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_14)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_15)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_2)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_1)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_3)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_7)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_8)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_9)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_10)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_11)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_12)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_13)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_16)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_17)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_18)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_19)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_20)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_21)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_22)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_23)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_24)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_25)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_26)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_27)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_28)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_29)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_30)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_31)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_32)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_33)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_34)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_35)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_36)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_37)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_38)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_39)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_40)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_41)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_42)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_43)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_44)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_45)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_46)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_47)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_48)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_49)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_50)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_51)",
+					"$(PROJECT_DIR)/libs",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E4B69B4D0A3A1720003C02F2 /* Build configuration list for PBXProject "stream14demo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E4B69B4E0A3A1720003C02F2 /* Debug */,
+				E4B69B4F0A3A1720003C02F2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E4B69B5F0A3A1757003C02F2 /* Build configuration list for PBXNativeTarget "stream14demo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E4B69B600A3A1757003C02F2 /* Debug */,
+				E4B69B610A3A1757003C02F2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E4B69B4C0A3A1720003C02F2 /* Project object */;
+}
