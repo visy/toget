@@ -5,6 +5,7 @@
 #include "ofxTweakbar.h"
 #include "ofxIniFile.h"
 #include "ofxTweakbarINI.h"
+#include "ofxPostProcessing.h"
 
 class ofApp : public ofBaseApp{
 

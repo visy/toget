@@ -2,10 +2,10 @@
 
 // scene stuff
 
-GLfloat lightOnePosition[] = {40.0, 40, 50.0, 0.0};
-GLfloat lightOneColor[] = {0.99, 0.99, 0.99, 1.0};
+GLfloat lightOnePosition[] = {80.0, -10, 60.0, 0.0};
+GLfloat lightOneColor[] = {1.99, 1.99, 1.99, 1.0};
 
-GLfloat lightTwoPosition[] = {-40.0, 40, 50.0, 0.0};
+GLfloat lightTwoPosition[] = {-40.0, 10, 70.0, 0.0};
 GLfloat lightTwoColor[] = {0.99, 0.99, 0.99, 1.0};
 
 // demo stuff
@@ -21,6 +21,8 @@ ofShader shaderBlurY;
 
 ofFbo bg;
 ofFbo fg;
+
+ofxPostProcessing post;
 
 // tweak stuff
 
@@ -101,6 +103,12 @@ void ofApp::setup() {
     
     bg.allocate(ofGetWidth(), ofGetHeight(), GL_RGBA);
     fg.allocate(ofGetWidth(), ofGetHeight(), GL_RGBA);
+    
+    // postprocess
+    
+    post.init(ofGetWidth(), ofGetHeight());
+    post.createPass<VerticalTiltShifPass>();
+    post.createPass<ContrastPass>();
 }
 
 float delta = 0.0;
@@ -166,6 +174,10 @@ void ofApp::draw(){
     ofDisableDepthTest();
     ofDisableBlendMode();
     
+    // composite
+    
+    post.begin();
+    
     ofSetColor(255, 255, 255, 255);
     bg.draw(0, 0);
     ofEnableAlphaBlending();
@@ -174,6 +186,8 @@ void ofApp::draw(){
     shaderBlurX.setUniform1f("blurAmnt", blur_float);
     fg.draw(0, 0);
     shaderBlurX.end();
+    
+    post.end();
 
     // end frame
     
