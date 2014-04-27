@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>A6D42A09-E3B1-45EB-B888-98DC98FDED75</string>
+	<key>IDESourceControlProjectName</key>
+	<string>stream14demo</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>ACDBB43A-48F5-4C63-A1A2-F43DE3C7465A</key>
+		<string>ssh://github.com/visy/toget.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>stream14demo.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>ACDBB43A-48F5-4C63-A1A2-F43DE3C7465A</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/visy/toget.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>ACDBB43A-48F5-4C63-A1A2-F43DE3C7465A</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>ACDBB43A-48F5-4C63-A1A2-F43DE3C7465A</string>
+			<key>IDESourceControlWCCName</key>
+			<string>stream14demo</string>
+		</dict>
+	</array>
+</dict>
+</plist>

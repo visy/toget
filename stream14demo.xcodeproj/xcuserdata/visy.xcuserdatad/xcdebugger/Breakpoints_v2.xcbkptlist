@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "src/ofApp.cpp"
-            timestampString = "420300797.444658"
+            timestampString = "420318702.286436"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "35"
-            endingLineNumber = "35">
+            startingLineNumber = "45"
+            endingLineNumber = "45">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -40,11 +40,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "src/ofApp.cpp"
-            timestampString = "420304975.272112"
+            timestampString = "420320101.469778"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "524"
-            endingLineNumber = "524"
+            startingLineNumber = "636"
+            endingLineNumber = "636"
             landmarkName = "ofApp::recordKeyFrame(int index)"
             landmarkType = "5">
          </BreakpointContent>
@@ -56,11 +56,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "src/ofApp.cpp"
-            timestampString = "420301159.491195"
+            timestampString = "420318702.286436"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "94"
-            endingLineNumber = "94"
+            startingLineNumber = "175"
+            endingLineNumber = "175"
             landmarkName = "ofApp::setup()"
             landmarkType = "5">
          </BreakpointContent>
@@ -72,11 +72,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "src/ofApp.cpp"
-            timestampString = "420301159.491195"
+            timestampString = "420318702.286436"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "98"
-            endingLineNumber = "98"
+            startingLineNumber = "181"
+            endingLineNumber = "181"
             landmarkName = "ofApp::setup()"
             landmarkType = "5">
          </BreakpointContent>
@@ -88,11 +88,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "src/ofApp.cpp"
-            timestampString = "420301159.491195"
+            timestampString = "420318702.286436"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "103"
-            endingLineNumber = "103"
+            startingLineNumber = "186"
+            endingLineNumber = "186"
             landmarkName = "ofApp::setup()"
             landmarkType = "5">
          </BreakpointContent>
@@ -104,11 +104,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "src/ofApp.cpp"
-            timestampString = "420301159.491195"
+            timestampString = "420318702.286436"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "104"
-            endingLineNumber = "104"
+            startingLineNumber = "187"
+            endingLineNumber = "187"
             landmarkName = "ofApp::setup()"
             landmarkType = "5">
          </BreakpointContent>
@@ -181,7 +181,7 @@
                   symbolName = "ofXml::ofXml()"
                   moduleName = "stream14demoDebug"
                   urlString = "file:///Users/visy/dev/of_v0.8.1_osx_release/libs/openFrameworks/utils/ofXml.cpp"
-                  timestampString = "420304415.566009"
+                  timestampString = "420315686.250007"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "39"
@@ -195,7 +195,7 @@
                   symbolName = "ofXml::ofXml()"
                   moduleName = "stream14demoDebug"
                   urlString = "file:///Users/visy/dev/of_v0.8.1_osx_release/libs/openFrameworks/utils/ofXml.cpp"
-                  timestampString = "420304415.566536"
+                  timestampString = "420315686.250449"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "35"
@@ -227,7 +227,7 @@
                   symbolName = "ofXml::ofXml()"
                   moduleName = "stream14demoDebug"
                   urlString = "file:///Users/visy/dev/of_v0.8.1_osx_release/libs/openFrameworks/utils/ofXml.cpp"
-                  timestampString = "420304415.583311"
+                  timestampString = "420315686.252222"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "39"
@@ -241,7 +241,7 @@
                   symbolName = "ofXml::ofXml()"
                   moduleName = "stream14demoDebug"
                   urlString = "file:///Users/visy/dev/of_v0.8.1_osx_release/libs/openFrameworks/utils/ofXml.cpp"
-                  timestampString = "420304415.583747"
+                  timestampString = "420315686.252599"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "35"
@@ -264,6 +264,38 @@
             startingLineNumber = "37"
             endingLineNumber = "37"
             landmarkName = "ofXml::ofXml()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../of_v0.8.1_osx_release/addons/ofx3DModelLoader/src/3DS/model3DS.h"
+            timestampString = "420313971.331355"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "214"
+            endingLineNumber = "214"
+            landmarkName = "class model3DS"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "src/ofApp.cpp"
+            timestampString = "420318833.28869"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "315"
+            endingLineNumber = "315"
+            landmarkName = "ofApp::draw()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

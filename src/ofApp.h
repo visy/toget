@@ -13,6 +13,8 @@
 class ofApp : public ofBaseApp{
 
 	public:
+        void setupOFmaterial();
+        void setupOFlight();
 		void setup();
 		void update();
 		void draw();

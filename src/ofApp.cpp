@@ -1,29 +1,39 @@
 #include "ofApp.h"
 #include <algorithm>
 
-// scene stuff
-
-GLfloat lightOnePosition[] = {80.0, -10, 60.0, 0.0};
-GLfloat lightOneColor[] = {1.99, 1.99, 1.99, 1.0};
-
-GLfloat lightTwoPosition[] = {-40.0, 10, 70.0, 0.0};
-GLfloat lightTwoColor[] = {0.99, 0.99, 0.99, 1.0};
-
 // demo stuff
 
 float junaX;
 float junaStartX;
 
 ofx3DModelLoader junaModel;
+ofImage junatex;
+ofImage junanormals;
+
 ofImage bgImage;
 
 ofShader shaderBlurX;
 ofShader shaderBlurY;
+ofShader bumpshader;
+ofEasyCam easyCam;
 
 ofFbo bg;
 ofFbo fg;
 
 ofxPostProcessing post;
+
+ofMaterial mat;
+ofFloatColor diffuse;
+ofFloatColor ambient;
+ofFloatColor specular;
+ofFloatColor emissive;
+
+ofFloatColor diffuseL;
+ofFloatColor ambientL;
+ofFloatColor specularL;
+ofFloatColor emissiveL;
+
+ofLight light;
 
 // tweak stuff
 
@@ -61,12 +71,83 @@ bool mySortFunc(std::pair<int,std::string> i, std::pair<int,std::string> j) {
     return (ii<jj);
 }
 
+void setupGlLight(){
+    
+    glEnable(GL_LIGHTING);
+    glEnable(GL_LIGHT0);
+    glEnable(GL_NORMALIZE);
+    
+    GLfloat lmKa[] = {0.8, 0.8, 0.8, 0.8 };
+    glLightModelfv(GL_LIGHT_MODEL_AMBIENT, lmKa);
+    glLightModelf(GL_LIGHT_MODEL_LOCAL_VIEWER, 1.0);
+    glLightModelf(GL_LIGHT_MODEL_TWO_SIDE, 0.0);
+    
+    GLfloat light_ambient[] = { 0.0, 0.0, 0.0, 1.0 };
+    GLfloat light_diffuse[] = { 1.0, 1.0, 1.0, 1.0 };
+    GLfloat light_specular[] = { 1.0, 1.0, 1.0, 1.0 };
+    GLfloat light_position[] = { +100, 100, 100, 0.0 }; //light directional if w=0 without shader works
+    //GLfloat light_position[] = { 220.0, 10.0, 0.0, 1.0 };
+    
+    glLightfv(GL_LIGHT0, GL_AMBIENT, light_ambient);
+    glLightfv(GL_LIGHT0, GL_DIFFUSE, light_diffuse);
+    glLightfv(GL_LIGHT0, GL_SPECULAR, light_specular);
+    glLightfv(GL_LIGHT0, GL_POSITION, light_position);
+    glLightf(GL_LIGHT0, GL_CONSTANT_ATTENUATION, 1.0);
+    glLightf(GL_LIGHT0, GL_LINEAR_ATTENUATION, 0.0);
+    glLightf(GL_LIGHT0, GL_QUADRATIC_ATTENUATION, 0.0);
+    
+}
+
+void setupGlMaterial(){
+    
+    GLfloat mat_ambient[] = {0.0f, 0.0f, 0.7f, 1.0f};
+    GLfloat mat_diffuse[] = {0.1f, 0.2f, 0.2f, 1.0f};
+    GLfloat mat_specular[] = {0.2f, 0.2f, 0.2f, 1.0f};
+    glMaterialfv(GL_FRONT,GL_AMBIENT, mat_ambient);
+    glMaterialfv(GL_FRONT,GL_DIFFUSE, mat_diffuse);
+    glMaterialfv(GL_FRONT,GL_SPECULAR, mat_specular);
+    glMaterialf(GL_FRONT,GL_SHININESS, 60.0);
+    
+}
+
+void ofApp::setupOFmaterial(){
+    
+    diffuse.set(0.4f,0.4f,0.4f,1.0f);
+    ambient.set(0.4f,0.4f,0.4f,1.0f);
+    specular.set(0.01f,0.2f,0.2f,1.0f);
+    emissive.set(0.0f,0.0f,0.0f,1.0f);
+    mat.setColors(diffuse,ambient,specular,emissive);
+    mat.setShininess(120.1f);
+    
+}
+
+void ofApp::setupOFlight(){
+    
+    light.enable();
+    light.draw();
+    light.setDirectional();
+    //light.setPointLight();
+    
+    light.setPosition(+100, 100, 100);
+    light.setAttenuation(0.2,0.3,0.4);
+    
+    diffuseL.set(1.0f,1.0f,1.0f,1.0f);
+    ambientL.set(0.0f,0.0f,0.0f,1.0f);
+    specularL.set(1.0f,1.0f,1.0f,1.0f);
+    
+    light.setAmbientColor(diffuseL);
+    light.setDiffuseColor(ambientL);
+    light.setSpecularColor(specularL);
+    
+}
+
+
 //--------------------------------------------------------------
 void ofApp::setup() {
     // tweakbars
     
     settings = ofxTweakbars::create("settings", "Demo Settings");
-	settings->addFloat("speed", &speed_float)->setLabel("train speed")->setMin("1.0")->setMax("6")->setStep("0.01");
+	settings->addFloat("speed", &speed_float)->setLabel("train speed")->setMin("0.0")->setMax("10")->setStep("0.01");
 	settings->addQuat4f("train_rotation", &train_rotation)->setLabel("train rotation");
     
 	settings
@@ -95,6 +176,8 @@ void ofApp::setup() {
         i++;
     }
     
+//    std::sort(keyFrameData.begin(), keyFrameData.end(), mySortFunc);
+    
     currentMaxKeyFrame = i-1;
     keyFrames = currentMaxKeyFrame;
     currentKeyFrame = 0;
@@ -102,10 +185,14 @@ void ofApp::setup() {
     // shaders
     
     shaderBlurX.load("shaders/shaderBlurX");
-    
+    bumpshader.load("shaders/NormalMap");
+
     // set OFX state
     ofHideCursor();
     
+    ofEnableLighting();
+    light.enable();
+
     ofEnableAntiAliasing();
     
     ofSetBackgroundAuto(false);
@@ -115,30 +202,26 @@ void ofApp::setup() {
     
     ofDisableArbTex();
     
-    //some model / light stuff
     ofEnableDepthTest();
     glShadeModel (GL_SMOOTH);
 
-    /* initialize lighting */
-    glLightfv (GL_LIGHT0, GL_POSITION, lightOnePosition);
-    glLightfv (GL_LIGHT0, GL_DIFFUSE, lightOneColor);
-    glEnable (GL_LIGHT0);
-    glLightfv (GL_LIGHT1, GL_POSITION, lightTwoPosition);
-    glLightfv (GL_LIGHT1, GL_DIFFUSE, lightTwoColor);
-    glEnable (GL_LIGHT1);
-    glEnable (GL_LIGHTING);
-    glColorMaterial (GL_FRONT_AND_BACK, GL_DIFFUSE);
-    glEnable (GL_COLOR_MATERIAL);
+    setupGlLight();
+    setupGlMaterial();
 
-    junaModel.loadModel("models/sm2-lowpoly.3ds", 20);
+    
+    // models
+    
+    junaModel.loadModel("models/sm2_rev2.3DS", 20);
 
+    junatex.loadImage("models/sm2_tex.png");
+    junanormals.loadImage("models/sm2_normal.png");
+    
     //you can create as many rotations as you want
     //choose which axis you want it to effect
     //you can update these rotations later on
     junaModel.setRotation(0, 90, 1, 0, 0);
     junaModel.setRotation(1, 270, 0, 0, 1);
     junaModel.setScale(2.0, 2.0, 1.0);
-    junaModel.setPosition(ofGetWidth()*2.0, ofGetHeight()/1.02, 0);
     junaStartX = junaModel.pos.x;
     
     bgImage.loadImage("gfx/junabg.png");
@@ -149,7 +232,7 @@ void ofApp::setup() {
     // postprocess
     
     post.init(ofGetWidth(), ofGetHeight());
-    post.createPass<VerticalTiltShifPass>();
+    post.createPass<HorizontalTiltShifPass>();
     post.createPass<ContrastPass>();
     
     // media
@@ -174,11 +257,11 @@ void ofApp::update(){
     // demo
     millis = soundPlayer.getPositionMS();
     
-    if (keyFrames > 0 && currentKeyFrame < currentMaxKeyFrame) setKeyFrameData(keyFrameData.at(currentKeyFrame));
+    if (keyFrames > 0 && currentKeyFrame < currentMaxKeyFrame && currentKeyFrame < keyFrameData.size()) setKeyFrameData(keyFrameData.at(currentKeyFrame));
     
-    junaSpeed=millis*0.5*speed_float;
+    junaSpeed+=delta*400.5*speed_float;
     junaX=junaStartX-junaSpeed;
-    if (junaX < -ofGetWidth()*3.0) junaStartX+=ofGetWidth()*2.45;
+//    if (junaX < -ofGetWidth()*3.0) junaStartX+=ofGetWidth()*2.45;
     
     blur_float = speed_float*0.001;
     
@@ -210,26 +293,57 @@ void ofApp::draw(){
     ofClearAlpha();
     ofClear(0,0,0);
     ofBackground(0, 0, 0, 0);
-        glPushMatrix();
-            ofVec3f qaxis; float qangle;
-            ofQuaternion qr;
-            qr.set(train_rotation[0], train_rotation[1], train_rotation[2], train_rotation[3]);
-            qr.getRotate(qangle, qaxis);
-            glRotatef(qangle, qaxis[0], qaxis[1]+fftFile.getAveragePeak(), qaxis[2]);
+    glEnable(GL_DEPTH_TEST);
+    glDepthFunc(GL_LEQUAL);                         // The Type Of Depth Testing To Do
     
-            junaModel.setPosition(junaX, junaModel.pos.y, junaModel.pos.z);
-            junaModel.draw();
-        
-            junaModel.setPosition((junaX+ofGetWidth()*2.45), junaModel.pos.y, junaModel.pos.z);
-            junaModel.draw();
-        
-            junaModel.setPosition((junaX+ofGetWidth()*2.45*2), junaModel.pos.y, junaModel.pos.z);
-            junaModel.draw();
+    glShadeModel(GL_SMOOTH);
+    ofEnableLighting();
 
-            junaModel.setPosition((junaX+ofGetWidth()*2.45*3), junaModel.pos.y, junaModel.pos.z);
-            junaModel.draw();
-        glPopMatrix();
+    easyCam.disableMouseInput();
+    easyCam.begin();
+    
+    mat.begin();
+
+        bumpshader.begin();
+
+    model3DS* jm = (model3DS*)junaModel.model;
+        bumpshader.setUniformTexture("normalMap",junanormals.getTextureReference(),junanormals.getTextureReference().getTextureData().textureID);
+
+        glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+
+            glPushMatrix();
+                ofVec3f qaxis; float qangle;
+                ofQuaternion qr;
+                qr.set(train_rotation[0], train_rotation[1], train_rotation[2], train_rotation[3]);
+                qr.getRotate(qangle, qaxis);
+                glRotatef(qangle, qaxis[0], qaxis[1]+fftFile.getAveragePeak(), qaxis[2]);
+    
+                float offx = ofGetWidth();
+    
+                ofScale(1, -1, 1);
+                ofTranslate(ofGetWidth()/2+offx, ofGetHeight()/3, -500);
+
+                junaModel.setPosition(junaX+offx, junaModel.pos.y, junaModel.pos.z);
+                junaModel.draw();
+            
+                junaModel.setPosition((junaX+ofGetWidth()*2.45+offx), junaModel.pos.y, junaModel.pos.z);
+                junaModel.draw();
+
+                for (int i = 0; i < 20; i++) {
+                    junaModel.setPosition((junaX+ofGetWidth()*2.45*(2+i)+offx), junaModel.pos.y, junaModel.pos.z);
+                    junaModel.draw();
+                }
+
+            glPopMatrix();
+        bumpshader.end();
+    mat.end();
+    
+    easyCam.end();
+
+
     fg.end();
+    
+    ofDisableLighting();
 
     ofDisableDepthTest();
     ofDisableBlendMode();
@@ -355,8 +469,6 @@ void ofApp::setKeyFrameData(std::pair<int,std::string> sync_datas) {
     
     if (millis < sync_millis) return;
     
-    cout << "setting keyframe " << currentKeyFrame << " for " << millis << endl;
-
     currentKeyFrame++;
     // time to autotweak mofo
     
@@ -549,12 +661,12 @@ void ofApp::mouseDragged(int x, int y, int button){
 
 //--------------------------------------------------------------
 void ofApp::mousePressed(int x, int y, int button){
-
+    recordKeyFrame(currentMaxKeyFrame);
 }
 
 //--------------------------------------------------------------
 void ofApp::mouseReleased(int x, int y, int button){
-
+    recordKeyFrame(currentMaxKeyFrame);
 }
 
 //--------------------------------------------------------------
