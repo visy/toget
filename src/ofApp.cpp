@@ -1,4 +1,5 @@
 #include "ofApp.h"
+#include <algorithm>
 
 // scene stuff
 
@@ -27,7 +28,6 @@ ofxPostProcessing post;
 // tweak stuff
 
 ofxTweakbar* settings;
-ofxTweakbar* particles;
 ofxIniFile* ini_file;
 ofxTweakbarINI* ini;
 float speed_float;
@@ -37,6 +37,17 @@ int num_files;
 int num_textures;
 float tweak;
 
+ofFile sync_file;
+ofXml sync_xml;
+
+float millis = 0.0;
+bool paused = false;
+int currentMaxKeyFrame = 0;
+int currentKeyFrame = 0;
+int keyFrames = 0;
+
+std::vector<std::pair<int,std::string> > keyFrameData;
+
 // media
 
 ofSoundPlayer soundPlayer;
@@ -44,12 +55,18 @@ ofSoundPlayer soundPlayer;
 ofxFFTFile fftFile;
 ofxFFTLive fftLive;
 
+bool mySortFunc(std::pair<int,std::string> i, std::pair<int,std::string> j) {
+    int ii = (int)i.first;
+    int jj = (int)j.first;
+    return (ii<jj);
+}
+
 //--------------------------------------------------------------
 void ofApp::setup() {
     // tweakbars
     
     settings = ofxTweakbars::create("settings", "Demo Settings");
-	settings->addFloat("speed", &speed_float)->setLabel("train speed")->setMin("0.0")->setMax("50000")->setStep("10");
+	settings->addFloat("speed", &speed_float)->setLabel("train speed")->setMin("1.0")->setMax("6")->setStep("0.01");
 	settings->addQuat4f("train_rotation", &train_rotation)->setLabel("train rotation");
     
 	settings
@@ -62,6 +79,25 @@ void ofApp::setup() {
 
     settings->load();
 	ini->retrieve();
+    
+    // sync
+    
+    sync_xml.load("sync.xml");
+    
+    int children = sync_xml.getNumChildren();
+    
+    string sync_data = "derp";
+    int i = 0;
+    while (sync_data != "") {
+        int sync_millis = sync_xml.getValue<int>("millis"+ofToString(i));
+        sync_data = sync_xml.getValue<string>("data"+ofToString(i));
+        if (sync_data != "") keyFrameData.push_back(std::pair<int, std::string>(sync_millis,sync_data));
+        i++;
+    }
+    
+    currentMaxKeyFrame = i-1;
+    keyFrames = currentMaxKeyFrame;
+    currentKeyFrame = 0;
     
     // shaders
     
@@ -124,8 +160,8 @@ void ofApp::setup() {
     fftLive.setup();
     
     soundPlayer.loadSound("media/capsule455.mp3");
-    soundPlayer.setLoop(true);
- //   soundPlayer.play();
+    soundPlayer.setLoop(false);
+    soundPlayer.play();
 
 }
 
@@ -136,12 +172,15 @@ float junaSpeed = 0.0;
 //--------------------------------------------------------------
 void ofApp::update(){
     // demo
+    millis = soundPlayer.getPositionMS();
     
-    junaSpeed+=speed_float*delta;
+    if (keyFrames > 0 && currentKeyFrame < currentMaxKeyFrame) setKeyFrameData(keyFrameData.at(currentKeyFrame));
+    
+    junaSpeed=millis*0.5*speed_float;
     junaX=junaStartX-junaSpeed;
     if (junaX < -ofGetWidth()*3.0) junaStartX+=ofGetWidth()*2.45;
     
-    blur_float = speed_float*0.000001;
+    blur_float = speed_float*0.001;
     
     fftFile.update();
     fftLive.update();
@@ -176,7 +215,7 @@ void ofApp::draw(){
             ofQuaternion qr;
             qr.set(train_rotation[0], train_rotation[1], train_rotation[2], train_rotation[3]);
             qr.getRotate(qangle, qaxis);
-            glRotatef(qangle, qaxis[0], qaxis[1]+fftLive.getAveragePeak(), qaxis[2]);
+            glRotatef(qangle, qaxis[0], qaxis[1]+fftFile.getAveragePeak(), qaxis[2]);
     
             junaModel.setPosition(junaX, junaModel.pos.y, junaModel.pos.z);
             junaModel.draw();
@@ -218,7 +257,7 @@ void ofApp::draw(){
     // fps display
     
     ofSetHexColor(0x000000);
-    ofDrawBitmapString("fps: "+ofToString(ofGetFrameRate(), 2), 10, 15);
+    ofDrawBitmapString("fps: "+ofToString(ofGetFrameRate(), 2) + " / millis: " + ofToString(millis, 0), 10, 15);
 
     // draw tweakbars
     
@@ -234,10 +273,263 @@ void ofApp::keyPressed(int key){
 		// Store the values into an ini file.
 		ini->store();
 	}
-	else if (key == 'l') {
+	else if (key == 'r') {
 		// Retrieve the values.
 		ini->retrieve();
 	}
+	else if (key == 'p') {
+		// Toggle play/pause
+        if (!paused) { soundPlayer.setPaused(true); paused = true; }
+        else { soundPlayer.setPaused(false); paused = false; }
+	}
+	else if (key == 'q') {
+		// rewind a lot
+        seekBy(-1000);
+	}
+	else if (key == 'e') {
+		// ff a lot
+        seekBy(1000);
+	}
+	else if (key == 'a') {
+		// rewind
+        seekBy(-100);
+	}
+	else if (key == 'd') {
+		// ff
+        seekBy(100);
+	}
+	else if (key == 'z') {
+		// rewind tiny
+        seekBy(-10);
+	}
+	else if (key == 'c') {
+		// ff tiny
+        seekBy(10);
+	}
+}
+
+void ofApp::seekBy(int offset) {
+    int currentMS = soundPlayer.getPositionMS();
+    int seekToMS = currentMS+offset;
+    if (seekToMS < 0) seekToMS = 0;
+    soundPlayer.setPositionMS(seekToMS);
+}
+
+std::vector<std::string> &split(const std::string &s, char delim, std::vector<std::string> &elems) {
+    std::stringstream ss(s);
+    std::string item;
+    while (std::getline(ss, item, delim)) {
+        elems.push_back(item);
+    }
+    return elems;
+}
+
+std::vector<std::string> split(const std::string &s, char delim) {
+    std::vector<std::string> elems;
+    split(s, delim, elems);
+    return elems;
+}
+
+int str2int (const string &str) {
+    stringstream ss(str);
+    int num;
+    if((ss >> num).fail())
+    {
+        //ERROR
+    }
+    return num;
+}
+
+float str2float (const string &str) {
+    stringstream ss(str);
+    float num;
+    if((ss >> num).fail())
+    {
+        //ERROR
+    }
+    return num;
+}
+
+void ofApp::setKeyFrameData(std::pair<int,std::string> sync_datas) {
+    int sync_millis = sync_datas.first;
+    
+    if (millis < sync_millis) return;
+    
+    cout << "setting keyframe " << currentKeyFrame << " for " << millis << endl;
+
+    currentKeyFrame++;
+    // time to autotweak mofo
+    
+    std::map<std::string, ofxTweakbarType*> vars = settings->getVariables();
+    std::map<std::string, ofxTweakbarType*>::iterator it = vars.begin();
+    ofxTweakbarType* type = NULL;
+    OFX_TW_TYPE tw_type;
+    std::string section = settings->getName();
+    
+    std::string sync_data = sync_datas.second;
+    
+    std::vector<std::string> xmlVars = split(sync_data, '|');
+
+    int typeCount = 0;
+    // count types
+    while(it != vars.end()) {
+        type = it->second;
+        tw_type = type->getType();
+        if(tw_type == OFX_TW_TYPE_INT32) {
+            ofxTweakbarInt* type_impl = static_cast<ofxTweakbarInt*>(it->second);
+            typeCount++;
+        }
+        else if (tw_type == OFX_TW_TYPE_FLOAT) {
+            ofxTweakbarFloat* type_impl = static_cast<ofxTweakbarFloat*>(it->second);
+            typeCount++;
+        }
+        else if (tw_type == OFX_TW_TYPE_COLOR3F) {
+            ofxTweakbarColor3f* type_impl = static_cast<ofxTweakbarColor3f*>(it->second);
+            typeCount++;
+        }
+        else if (tw_type == OFX_TW_TYPE_VEC3F) {
+            ofxTweakbarVec3f* type_impl = static_cast<ofxTweakbarVec3f*>(it->second);
+            typeCount++;
+        }
+        else if (tw_type == OFX_TW_TYPE_QUAT4F) {
+            ofxTweakbarQuat4f* type_impl = static_cast<ofxTweakbarQuat4f*>(it->second);
+            typeCount++;
+        }
+        ++it;
+    }
+    
+    if (xmlVars.size() != typeCount) cout << "DANGER DANGER" << endl;
+    
+    it = vars.begin();
+    int i = 0;
+    // set types from string
+    while(it != vars.end()) {
+        type = it->second;
+        tw_type = type->getType();
+        if(tw_type == OFX_TW_TYPE_INT32) {
+            ofxTweakbarInt* type_impl = static_cast<ofxTweakbarInt*>(it->second);
+            type_impl->setValue(str2int(xmlVars.at(i).substr(1)));
+            ++i;
+        }
+        else if (tw_type == OFX_TW_TYPE_FLOAT) {
+            ofxTweakbarFloat* type_impl = static_cast<ofxTweakbarFloat*>(it->second);
+            type_impl->setValue(str2float(xmlVars.at(i).substr(1)));
+            ++i;
+        }
+        else if (tw_type == OFX_TW_TYPE_COLOR3F) {
+            ofxTweakbarColor3f* type_impl = static_cast<ofxTweakbarColor3f*>(it->second);
+            std::vector<std::string> splitVecf = split(xmlVars.at(i).substr(1), ',');
+            float q0 = 0.0;
+            float q1 = 0.0;
+            float q2 = 0.0;
+            
+            q0 = str2float(splitVecf.at(0));
+            q1 = str2float(splitVecf.at(1));
+            q2 = str2float(splitVecf.at(2));
+            type_impl->setValue(q0, q1, q2);
+            ++i;
+        }
+        else if (tw_type == OFX_TW_TYPE_VEC3F) {
+            ofxTweakbarVec3f* type_impl = static_cast<ofxTweakbarVec3f*>(it->second);
+            std::vector<std::string> splitVecf = split(xmlVars.at(i).substr(1), ',');
+            float q0 = 0.0;
+            float q1 = 0.0;
+            float q2 = 0.0;
+            
+            q0 = str2float(splitVecf.at(0));
+            q1 = str2float(splitVecf.at(1));
+            q2 = str2float(splitVecf.at(2));
+            type_impl->setValue(q0, q1, q2);
+            ++i;
+        }
+        else if (tw_type == OFX_TW_TYPE_QUAT4F) {
+            ofxTweakbarQuat4f* type_impl = static_cast<ofxTweakbarQuat4f*>(it->second);
+            std::vector<std::string> splitQuatf = split(xmlVars.at(i).substr(1), ',');
+            float q0 = 0.0;
+            float q1 = 0.0;
+            float q2 = 0.0;
+            float q3 = 0.0;
+            
+            q0 = str2float(splitQuatf.at(0));
+            q1 = str2float(splitQuatf.at(1));
+            q2 = str2float(splitQuatf.at(2));
+            q3 = str2float(splitQuatf.at(3));
+            type_impl->setValue(q0, q1, q2, q3);
+            ++i;
+        }
+        ++it;
+    }
+    
+    settings->refresh();
+}
+
+void ofApp::recordKeyFrame(int index) {
+    std::map<std::string, ofxTweakbarType*> vars = settings->getVariables();
+    std::map<std::string, ofxTweakbarType*>::iterator it = vars.begin();
+    ofxTweakbarType* type = NULL;
+    OFX_TW_TYPE tw_type;
+    std::string section = settings->getName();
+
+    string sync_data = "";
+    
+    while(it != vars.end()) {
+        type = it->second;
+        tw_type = type->getType();
+        if(tw_type == OFX_TW_TYPE_INT32) {
+            ofxTweakbarInt* type_impl = static_cast<ofxTweakbarInt*>(it->second);
+            sync_data += "I";
+            sync_data += ofToString(type_impl->getValue());
+        }
+        else if (tw_type == OFX_TW_TYPE_FLOAT) {
+            ofxTweakbarFloat* type_impl = static_cast<ofxTweakbarFloat*>(it->second);
+            sync_data += "F";
+            sync_data += ofToString(type_impl->getValue());
+        }
+        else if (tw_type == OFX_TW_TYPE_COLOR3F) {
+            ofxTweakbarColor3f* type_impl = static_cast<ofxTweakbarColor3f*>(it->second);
+            IniVec3f v(type_impl->getX(), type_impl->getY(), type_impl->getZ());
+            sync_data += "C";
+            sync_data += ofToString(type_impl->getX());
+            sync_data += ",";
+            sync_data += ofToString(type_impl->getY());
+            sync_data += ",";
+            sync_data += ofToString(type_impl->getZ());
+        }
+        else if (tw_type == OFX_TW_TYPE_VEC3F) {
+            ofxTweakbarVec3f* type_impl = static_cast<ofxTweakbarVec3f*>(it->second);
+            IniVec3f v(type_impl->getX(), type_impl->getY(), type_impl->getZ());
+            sync_data += "V";
+            sync_data += ofToString(type_impl->getX());
+            sync_data += ",";
+            sync_data += ofToString(type_impl->getY());
+            sync_data += ",";
+            sync_data += ofToString(type_impl->getZ());
+        }
+        else if (tw_type == OFX_TW_TYPE_QUAT4F) {
+            ofxTweakbarQuat4f* type_impl = static_cast<ofxTweakbarQuat4f*>(it->second);
+            IniQuat4f v(type_impl->getX(), type_impl->getY(), type_impl->getZ(), type_impl->getS());
+            sync_data += "Q";
+            sync_data += ofToString(type_impl->getX());
+            sync_data += ",";
+            sync_data += ofToString(type_impl->getY());
+            sync_data += ",";
+            sync_data += ofToString(type_impl->getZ());
+            sync_data += ",";
+            sync_data += ofToString(type_impl->getS());
+        } else {
+            ++it;
+            continue;
+        }
+        
+        ++it;
+        if (it != vars.end()) sync_data += "|";
+    }
+    
+    sync_xml.setTo("syncdata");
+    sync_xml.addValue("millis"+ofToString(index), millis);
+    sync_xml.addValue("data"+ofToString(index), sync_data);
+    sync_xml.save("sync.xml");
+    currentMaxKeyFrame++;
 }
 
 //--------------------------------------------------------------
@@ -252,7 +544,7 @@ void ofApp::mouseMoved(int x, int y ){
 
 //--------------------------------------------------------------
 void ofApp::mouseDragged(int x, int y, int button){
-
+    recordKeyFrame(currentMaxKeyFrame);
 }
 
 //--------------------------------------------------------------

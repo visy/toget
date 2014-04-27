@@ -1,5 +1,6 @@
 #pragma once
 
+#include <algorithm>    // std::sort
 #include "ofMain.h"
 #include "ofx3DModelLoader.h"
 #include "ofxTweakbar.h"
@@ -26,4 +27,7 @@ class ofApp : public ofBaseApp{
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
         static void TW_CALL buttonCallback(void* pApp);
+        void setKeyFrameData(std::pair<int,std::string> sync_datas);
+        void recordKeyFrame(int index);
+        void seekBy(int offset);
 };
