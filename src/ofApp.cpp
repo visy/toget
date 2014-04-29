@@ -58,6 +58,8 @@ int keyFrames = 0;
 
 std::vector<std::pair<int,std::string> > keyFrameData;
 
+std::map<std::string, ofxTweakbarType*> prevFrameTweakVars;
+
 // media
 
 ofSoundPlayer soundPlayer;
@@ -270,7 +272,9 @@ void ofApp::update(){
 }
 
 //--------------------------------------------------------------
-void ofApp::draw(){
+void ofApp::draw() {
+    prevFrameTweakVars = settings->getVariables();
+
     startTime = ofGetElapsedTimef();
 
     ofDisableBlendMode();
@@ -464,6 +468,11 @@ float str2float (const string &str) {
     return num;
 }
 
+int ofApp::getChangedControlIndex() {
+
+    return -1;
+}
+
 void ofApp::setKeyFrameData(std::pair<int,std::string> sync_datas) {
     int sync_millis = sync_datas.first;
     
@@ -478,7 +487,22 @@ void ofApp::setKeyFrameData(std::pair<int,std::string> sync_datas) {
     OFX_TW_TYPE tw_type;
     std::string section = settings->getName();
     
-    std::string sync_data = sync_datas.second;
+    std::string sync_datum = sync_datas.second;
+    std::string sync_data;
+
+    bool allChange = false;
+    
+    int changeIndex = 0;
+    
+    if (sync_datum.at(0) == 'X') {
+        allChange = true;
+        sync_data = sync_datum.substr(1);
+    }
+    else {
+        std::vector<std::string> datas = split(sync_datum, 'Z');
+        changeIndex = str2int(datas.at(0));
+        sync_data = datas.at(1);
+    }
     
     std::vector<std::string> xmlVars = split(sync_data, '|');
 
@@ -520,17 +544,20 @@ void ofApp::setKeyFrameData(std::pair<int,std::string> sync_datas) {
         tw_type = type->getType();
         if(tw_type == OFX_TW_TYPE_INT32) {
             ofxTweakbarInt* type_impl = static_cast<ofxTweakbarInt*>(it->second);
+            if (i == changeIndex || allChange)
             type_impl->setValue(str2int(xmlVars.at(i).substr(1)));
             ++i;
         }
         else if (tw_type == OFX_TW_TYPE_FLOAT) {
             ofxTweakbarFloat* type_impl = static_cast<ofxTweakbarFloat*>(it->second);
-            type_impl->setValue(str2float(xmlVars.at(i).substr(1)));
+            if (i == changeIndex || allChange)
+                type_impl->setValue(str2float(xmlVars.at(i).substr(1)));
             ++i;
         }
         else if (tw_type == OFX_TW_TYPE_COLOR3F) {
             ofxTweakbarColor3f* type_impl = static_cast<ofxTweakbarColor3f*>(it->second);
-            std::vector<std::string> splitVecf = split(xmlVars.at(i).substr(1), ',');
+            if (i == changeIndex || allChange) {
+                std::vector<std::string> splitVecf = split(xmlVars.at(i).substr(1), ',');
             float q0 = 0.0;
             float q1 = 0.0;
             float q2 = 0.0;
@@ -539,10 +566,13 @@ void ofApp::setKeyFrameData(std::pair<int,std::string> sync_datas) {
             q1 = str2float(splitVecf.at(1));
             q2 = str2float(splitVecf.at(2));
             type_impl->setValue(q0, q1, q2);
+            }
             ++i;
         }
         else if (tw_type == OFX_TW_TYPE_VEC3F) {
             ofxTweakbarVec3f* type_impl = static_cast<ofxTweakbarVec3f*>(it->second);
+            if (i == changeIndex || allChange) {
+                
             std::vector<std::string> splitVecf = split(xmlVars.at(i).substr(1), ',');
             float q0 = 0.0;
             float q1 = 0.0;
@@ -552,10 +582,13 @@ void ofApp::setKeyFrameData(std::pair<int,std::string> sync_datas) {
             q1 = str2float(splitVecf.at(1));
             q2 = str2float(splitVecf.at(2));
             type_impl->setValue(q0, q1, q2);
+            }
             ++i;
         }
         else if (tw_type == OFX_TW_TYPE_QUAT4F) {
             ofxTweakbarQuat4f* type_impl = static_cast<ofxTweakbarQuat4f*>(it->second);
+            if (i == changeIndex || allChange) {
+                
             std::vector<std::string> splitQuatf = split(xmlVars.at(i).substr(1), ',');
             float q0 = 0.0;
             float q1 = 0.0;
@@ -567,12 +600,14 @@ void ofApp::setKeyFrameData(std::pair<int,std::string> sync_datas) {
             q2 = str2float(splitQuatf.at(2));
             q3 = str2float(splitQuatf.at(3));
             type_impl->setValue(q0, q1, q2, q3);
+            }
             ++i;
         }
         ++it;
     }
     
     settings->refresh();
+    if (keyFrames > 0 && currentKeyFrame < currentMaxKeyFrame && currentKeyFrame < keyFrameData.size()) setKeyFrameData(keyFrameData.at(currentKeyFrame));
 }
 
 void ofApp::recordKeyFrame(int index) {
@@ -581,8 +616,10 @@ void ofApp::recordKeyFrame(int index) {
     ofxTweakbarType* type = NULL;
     OFX_TW_TYPE tw_type;
     std::string section = settings->getName();
+    
+    int changedControlIndex = getChangedControlIndex();
 
-    string sync_data = "";
+    string sync_data = "" + (changedControlIndex == -1 ? "X" : ofToString(changedControlIndex) + "Z");
     
     while(it != vars.end()) {
         type = it->second;

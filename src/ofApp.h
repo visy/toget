@@ -29,6 +29,7 @@ class ofApp : public ofBaseApp{
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
         static void TW_CALL buttonCallback(void* pApp);
+        int getChangedControlIndex();
         void setKeyFrameData(std::pair<int,std::string> sync_datas);
         void recordKeyFrame(int index);
         void seekBy(int offset);
